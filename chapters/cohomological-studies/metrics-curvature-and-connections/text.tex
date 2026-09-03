@@ -1,0 +1,220 @@
+% !TeX root = metrics-curvature-and-connections.tex
+% \Yang{we want discuss the following topics here: metric, forms, connection, curvature, Chern classes, K\"ahler condition, examples.}
+
+\subsection{The first properties}
+
+    Let \(X\) be a complex manifold and \(E \to X\) a holomorphic vector bundle. 
+
+    \begin{definition}\label{def:hermitian_metric_on_holomorphic_vector_bundles}
+        A \emph{hermitian metric} on \(E\) is a smoothly varying family of hermitian inner products \(\langle \cdot, \cdot \rangle_x\) on the fibers \(E_x\) for each \(x \in X\),
+        i.e., 
+        \[\langle \cdot, \cdot \rangle_x: E_x \times E_x \to \mathbb{C}\]
+        is a hermitian inner product for each \(x\), and for any local smooth sections \(s,t\) of \(E\), the function
+        \[x \mapsto \langle s(x), t(x) \rangle_x\]
+        is smooth on \(X\).
+        A vector bundle equipped with a hermitian metric is called a \emph{hermitian vector bundle}.
+        % \Yang{To be continued.}
+    \end{definition}
+
+    \begin{definition}\label{def:hermitian_metric_on_tangent_bundle}
+        A \emph{hermitian metric} on a complex manifold \(X\) is a hermitian metric on its holomorphic tangent bundle \(TX\).
+    \end{definition}
+
+    \begin{remark}\label{rmk:Riemannian_metric_induced_by_hermitian_metric}
+        Let \(h\) be a hermitian metric on a complex manifold \(X\).
+        Then \(h\) induces a Riemannian metric \(g\) on the underlying real manifold of \(X\) by
+        \[g(u,v) = \Real(h(u,v))\]
+        for real tangent vectors \(u,v \in T_x X\).
+        % \Yang{To be revised.}
+    \end{remark}
+
+    \begin{example}\label{eg:Fubini-Study_metric_on_P^n}
+        Let \(\bbP^n\) be the complex projective space.
+        Recall that \(\bbP^n(\bbC) \cong (\bbC^{n+1} \setminus \{0\})/\bbC^*\).
+        We focus on the underlying smooth manifold structure.
+        We have \(\bbC^* \cong S^1 \times \bbR_{>0}\) and \((\bbC^{n+1} \setminus \{0\})/ \bbR_{>0} \cong S^{2n+1}\).
+        Hence \(\bbP^n(\bbC) \cong S^{2n+1}/S^1\).
+        Note that \(S^1 \acts S^{2n+1} \subset \bbC^{n+1}\) is isometric with respect to the standard hermitian metric on \(\bbC^{n+1}\).
+        Hence the quotient \(\bbP^n(\bbC)\) inherits a natural hermitian metric \(h_{\text{FS}}\), called the \emph{Fubini-Study metric}.
+
+        On the standard affine chart \(U_i = \{[z_0: \cdots : z_n] \in \bbP^n \mid z_i \neq 0\}\) with coordinates \(z_{j,i} = z_j/z_i\) for \(j \neq i\), 
+        we know that \(T\bbP^n|_{U_i}\) is spanned by \(\{\partial_{j,i} = \partial/\partial z_{j,i}\}_{j \neq i}\).
+        The Fubini-Study metric is given by
+        \[h_{\text{FS}}(z_{-,i})(\partial_{k,i}, \partial_{l,i}) = \frac{\delta_{kl}}{1 + \sum_{r \neq i} |z_{r,i}|^2} - \frac{\overline{z_{k,i}} z_{l,i}}{(1 + \sum_{r \neq i} |z_{r,i}|^2)^2}.\]
+        % % On \(U_{ij} = U_i \cap U_j\), the differential form transform as
+        % % \[ \upd z_{k,i} = z_{j,i} \upd z_{k,j} - z_{k,i} z_{j,i} \upd z_{i,j}.\]
+        % % It follows that
+        % % \[ \frac{\partial z_{k,i}}{\partial z_{l,j}} = \begin{cases}
+        % %     z_{j,i}, & l = k,k \neq j, \\
+        % %     -z_{k,i} z_{j,i}, & l = i, \\
+        % %     0, & \text{otherwise}.
+        % % \end{cases}\]
+        % % Hence the tangent vectors transform as
+        % % \[\partial_{l,j} = \sum_{k \neq i} \frac{\partial z_{l,j}}{\partial z_{k,i}} \partial_{k,i} = \begin{cases}
+        % %     z_{j,i} \partial_{l,i}, & l \neq i, \\
+        % %     -\sum_{k \neq i} z_{k,i}z_{j,i} \partial_{k,i}, & l = i.
+        % % \end{cases} \]
+        % % In the matrix form,
+        % % \[\begin{bmatrix}
+        % %     \upd z_{0,i} \\
+        % %     \vdots \\   
+        % %     \upd z_{i-1,i} \\
+        % %     \upd z_{i+1,i} \\
+        % %     \vdots \\
+        % %     \upd z_{j,i} \\
+        % %     \vdots \\
+        % %     \upd z_{n,i}
+        % % \end{bmatrix} =
+        % % \begin{bmatrix}
+        % %     z_{j,i} & 0 & \cdots & \textcolor{cyan}{-z_{1,i} z_{j,i}} & \cdots & 0 \\
+        % %     0 & z_{j,i} & \cdots & \textcolor{cyan}{-z_{2,i} z_{j,i}} & \cdots & 0 \\
+        % %     \vdots & \vdots & \ddots & \textcolor{cyan}{\vdots} & \ddots & \vdots \\
+        % %     0 & 0 & \cdots & \textcolor{cyan}{-1} & \cdots & 0 \\
+        % %     \vdots & \vdots & \ddots & \textcolor{cyan}{\vdots} & \ddots & \vdots \\
+        % %     0 & 0 & \cdots & \textcolor{cyan}{-z_{n,i} z_{j,i}} & \cdots & z_{j,i}
+        % % \end{bmatrix}
+        % % \begin{bmatrix}
+        % %     \upd z_{0,j} \\
+        % %     \vdots \\
+        % %     \textcolor{cyan}{\upd z_{i,j}} \\
+        % %     \vdots \\
+        % %     \upd z_{j-1,j} \\
+        % %     \upd z_{j+1,j} \\
+        % %     \vdots \\   
+        % %     \upd z_{n,j}
+        % % \end{bmatrix}.\]        
+        % % tangent vectors transform as
+        % % \[\partial_{k,i} = \frac{\partial}{\partial (z_{k,j} z_{j,i})} = \frac{1}{z_{j,i}} \partial_{k,j} \]
+        % % One can check that the above definition is consistent on the overlaps \(U_{ij}\),
+        % \Yang{To be continued.}
+    \end{example}
+
+    \begin{example}\label{eg:Fubini-Study_metric_on_P^2}
+        Now let us consider the complex projective plane \(\bbP^2 = \{[X:Y:Z]\}\).
+        On the affine chart \(U_Z = \{[X:Y:Z] \mid Z \neq 0\}\) with coordinates \(x = X/Z\) and \(y = Y/Z\), 
+        the Fubini-Study metric \(h_{\text{FS}}\) on \(T \bbP^2|_{U_Z}\) is given by
+        \[ h_{\text{FS}}(x,y) = \frac{1}{(1 + |x|^2 + |y|^2)^2}\begin{bmatrix}
+            1 + |y|^2 & -\overline{x} y \\
+            -x \overline{y} & 1 + |x|^2
+        \end{bmatrix}. \]
+        For a tangent vector \(\partial = a \partial_x + b \partial_y\), its norm squared is
+        \[ \|\partial\|_{h_{\text{FS}}}^2 = \frac{(1 + |y|^2)|a|^2 + (1 + |x|^2)|b|^2 - 2 \Real(\overline{x} y a \overline{b})}{(1 + |x|^2 + |y|^2)^2} = \frac{|a|^2 + |b|^2 + |x b - y a|^2}{(1 + |x|^2 + |y|^2)^2} \geq 0. \]
+    \end{example}
+
+    \begin{example}\label{eg:Fubini-Study_metric_on_O_1}
+        Let \(\bbP^n\) be the complex projective space in the sense of Grothendieck, i.e., the set of hyperplanes in \(\bbC^{n+1}\) and \(L \to \bbP^n\) be the geometric line bundle corresponding to \(\calO_{\bbP^n}(1)\).
+        On \(L\), there is another ``Fubini-Study'' hermitian metric \(h_{\text{FS}}\) defined as follows.
+        Fix a hermitian metric \(\langle \cdot, \cdot \rangle\) on \(\bbC^{n+1}\).
+        For a point \(x \in \bbP^n\) represented by a linear functional \(f_x: \bbC^{n+1} \to \bbC\), the fiber \(L_x\) can be identified with \(\bbC^{n+1}/\ker(f_x) \cong \bbC\).
+        There is a canonical isomorphism \(\bbC^{n+1}/\ker(f_x) \cong (\ker f_x)^\perp\) induced by the given hermitian metric on \(\bbC^{n+1}\).
+        Hence on \(L_x\), we can define a hermitian metric by pulling back the restriction of \(\langle \cdot, \cdot \rangle\) on \((\ker f_x)^\perp\).
+        
+        Concretely, Let us take the standard hermitian metric on \(\bbC^{n+1}\).
+        On the standard affine chart \(U_i = \{[z_0: \cdots : z_n] \in \bbP^n \mid z_i \neq 0\}\) with coordinates \(z_{j,i} = z_j/z_i\) for \(j \neq i\),
+        a local holomorphic frame of \(L\) is given by
+        \[s_i([z_0: \cdots : z_n]) = (z_0, \ldots, z_{i-1}, 1, z_{i+1}, \ldots, z_n) \in L_{[z_0: \cdots : z_n]}.\]
+    \end{example}
+
+    \begin{definition}\label{def:connection_on_holomorphic_vector_bundles}
+        Let \(X\) be a complex manifold and \(E \to X\) a holomorphic vector bundle.
+        A \emph{connection} on \(E\) is a \(\bbC\)-linear map between the sheaves of smooth sections
+        \[\nabla: \calC^\infty(-, E) \to \calC^\infty(-, T^*X \otimes E)\]
+        satisfying the Leibniz rule:
+        \[\nabla(fs) = \upd f \otimes s + f \nabla s\]
+        for all smooth functions \(f\) and smooth sections \(s\) of \(E\).
+    \end{definition}
+
+    When you choose a vector field \(v \in \calC^\infty(U, TX)\) on an open set \(U \subset X\), the connection \(\nabla\) induces an endomorphism
+    \[\nabla_v: \calC^\infty(U, E) \to \calC^\infty(U, E)\]
+    by applying \(v\) on the \(T^*X\) component of \(\nabla s\) for a section \(s\) of \(E\).
+    In particular, if \(E = TX\) is the tangent bundle, then \(\nabla_v\) is called a \emph{covariant derivative} along \(v\).
+    Sometimes people call \(\nabla\) an \emph{endomorphism-valued 1-form} on \(X\) with values in \(\End(E)\) by viewing it as a map \(v \mapsto \nabla_v\).
+
+    \begin{proposition}\label{prop:unique_compatible_connection_on_hermitian_vector_bundle}
+        Let \(X\) be a complex manifold, \(E \to X\) a holomorphic vector bundle equipped with a hermitian metric \(h\).
+        Then there exists a unique connection \(\nabla\) on \(E\) that is compatible with both the holomorphic structure and the hermitian metric \(h\).
+        \Yang{To be checked.}
+    \end{proposition}
+    \begin{proof}
+        \Yang{to be added.}
+    \end{proof}
+
+    \begin{example}\label{eg:connection_on_P^n}
+        Let \(\mathbb{P}^n\) be the complex projective space and \(\mathcal{O}_{\mathbb{P}^n}(1)\) the hyperplane line bundle.
+        The \emph{Chern connection} associated with the Fubini-Study metric on \(\mathcal{O}_{\mathbb{P}^n}(1)\) is a connection defined as follows:
+        For a section \(s\) of \(\mathcal{O}_{\mathbb{P}^n}(1)\), we define
+        \[\nabla s = ds + \alpha s,\]
+        where \(\alpha\) is a (1,0)-form determined by the Fubini-Study metric.
+        \Yang{To be continued.}
+    \end{example}
+
+    By the Leibniz rule, the connection \(\nabla\) can be extended to act on \(E\)-valued differential forms:
+    \[\nabla: \calC^\infty(-, \Lambda^k T^*X \otimes E) \to \calC^\infty(-, \Lambda^{k+1} T^*X \otimes E)\]
+    for all \(k \geq 0\), satisfying
+    \[\nabla(\omega \otimes s) = \upd\omega \otimes s + (-1)^k \omega \wedge \nabla s\]
+    for \(\omega \in \calC^\infty(-, \Lambda^k T^*X)\) and \(s \in \calC^\infty(-, E)\).
+
+    \begin{definition}\label{def:curvature_of_connection}
+        Let \(X\) be a complex manifold, \(E \to X\) a holomorphic vector bundle, and \(\nabla\) a connection on \(E\).
+        The \emph{curvature} of the connection \(\nabla\) is defined as the endomorphism-valued 2-form
+        \[F_\nabla = \nabla^2: \calC^\infty(-, E) \to \calC^\infty(-, \Lambda^2 T^*X \otimes E),\]
+        where \(\nabla^2\) is the composition of \(\nabla\) with itself.
+        % \Yang{To be continued.}
+    \end{definition}
+
+    When \(E = TX\) is the tangent bundle, the curvature \(F_\nabla\) is a \((3,1)\)-tensor, which is the classical Riemann curvature tensor.
+
+    \begin{example}\label{eg:curvature_of_Fubini_Study_metric}
+        \Yang{To be added.}
+    \end{example}
+
+    \Yang{For a line bundle, everything coincide.}
+
+
+
+\subsection{On line bundles}
+
+    Let \(X\) be a complex manifold and \(L \to X\) a holomorphic line bundle.
+
+    \begin{proposition}\label{prop:hermitian_metric_different_by_a_smooth_function_on_a_fixed_line_bundle}
+        Let \(h_1,h_2\) be two hermitian metrics on \(L\).
+        Then there exists a smooth function \(\varphi: X \to \bbR\) such that
+        \[h_2(s,t) = \exp(\varphi) \cdot h_1(s,t)\]
+        for all local smooth sections \(s,t\) of \(L\).
+    \end{proposition}
+    \begin{proof}
+        \Yang{to be added.}
+    \end{proof}
+
+    \begin{proposition}\label{prop:correspondence_between_hermitian_metric_and_forms}
+        There is a one-to-one correspondence between hermitian metrics on \(L\) and real \((1,1)\)-forms representing the first Chern class \(c_1(L) \in H^{1,1}(X, \bbR)\).
+        More precisely, given a hermitian metric \(h\) on \(L\), there exists a unique real \((1,1)\)-form \(\omega_h\) such that for any local holomorphic non-vanishing section \(s\) of \(L\),
+        \[\omega_h = -\frac{i}{2\pi} \partial \overline{\partial} \log h(s,s).\]
+        Conversely, given a real \((1,1)\)-form \(\omega\) representing \(c_1(L)\), there exists a hermitian metric \(h\) on \(L\) such that \(\omega = \omega_h\).
+        \Yang{To be checked.}
+    \end{proposition}
+
+    \Yang{Green functions?}
+
+
+
+\subsection{Chern-Weil Theory}
+
+    \begin{theorem}\label{thm:Chern-Weil_theorem}
+        Let \(X\) be a complex manifold and \(E \to X\) a holomorphic vector bundle equipped with a hermitian metric \(h\).
+        Let \(\nabla\) be the unique connection on \(E\) compatible with both the holomorphic structure and the hermitian metric \(h\), and let \(F_\nabla\) be its curvature.
+        Then the Chern classes \(c_k(E) \in H^{2k}(X, \mathbb{R})\) can be represented by the differential forms
+        \[c_k(E) = \left[\frac{1}{(2\pi i)^k} \mathrm{Tr} \left( F_\nabla^k \right) \right].\]
+        \Yang{To be checked.}
+    \end{theorem}
+    \begin{proof}
+        \Yang{To be added.}
+    \end{proof}
+
+
+% \subsection{the K\"ahler condition}
+
+%     \begin{definition}\label{def:Kahler_manifold}
+%         A \emph{K\"ahler manifold} is a complex manifold \(X\) equipped with a hermitian metric \(h\) whose associated (1,1)-form \(\omega\) is closed, i.e., \(d\omega = 0\).
+%         \Yang{To be checked.}
+%     \end{definition}

@@ -1,0 +1,70 @@
+% !TeX program = xelatex
+% !TeX encoding = UTF-8
+% !BIB program = biber
+\documentclass[sectionlevel=book]{noteformyself}
+
+
+% manage-notes:begin watermark
+\usepackage{draftwatermark}
+% manage-notes:end watermark
+\input{accessories/notation.tex}                 % 加载符号定义文件
+\addbibresource{refs.bib}             % 添加参考文献文件
+\newcommand{\Yang}[1]{\textcolor{red}{Yang: #1}}
+
+
+\title{Complex Geometry}
+\author{Tianle Yang}
+\date{\today}
+\authorpage{\href{https://www.tianleyang.com}{https://www.tianleyang.com}}
+
+% available on the mode "\sectionlevel=chapter" or "\sectionlevel=book".
+\setCJKfamilyfont{lxgwwenkai}{LXGW WenKai} % 定义霞鹜文楷，若未安装，请去掉相关代码编译或使用其他字体
+\coversentence{\CJKfamily{lxgwwenkai}“abaaba”}
+\coverimage{} % 封面图片
+\covertitlefont{TeX Gyre Termes} % 封面标题字体, 若未安装，请去掉相关代码编译或使用其他字体
+% \coverlinecolor{red} % 封面线条颜色
+% \covertextcolor{green} % 封面文字颜色
+
+% available on the mode "\sectionlevel=book".
+\authoremail{\href{mailto:loveandjustice@88.com}{loveandjustice@88.com}}
+\texsource{\href{https://github.com/MonkeyUnderMountain/complex-geometry}{github.com/MonkeyUnderMountain/complex-geometry}}
+\version{0.1.0}
+
+
+\begin{document}
+
+    \maketitle
+
+    \frontmatter % 前言页码罗马数字
+
+    \tableofcontents % 生成目录
+
+    \mainmatter % 正文页码阿拉伯数字
+
+    % manage-notes:begin chapters
+    \chapter{The first properties}
+        \section{Analysis in several complex variables}
+        \input{chapters/the-first-properties/analysis-in-several-complex-variables/text.tex}
+        \section{Complex Manifolds}
+        \input{chapters/the-first-properties/complex-manifolds/text.tex}
+        \section{Meromorphic functions}
+        \input{chapters/the-first-properties/meromorphic-functions-and-siegel-theorem-on-function-fields/text.tex}
+        \section{Sheaves and Bundles on Complex Manifolds}
+        \input{chapters/the-first-properties/sheaves-and-bundles-on-complex-manifolds/text.tex}
+
+    \chapter{Cohomological studies}
+        \section{Forms and Currents}
+        \input{chapters/cohomological-studies/forms-and-currents/text.tex}
+        \section{Cohomology Theories in Complex Geometry}
+        \input{chapters/cohomological-studies/cohomology-in-complex-geometry/text.tex}
+        \section{Metrics, curvature and connections}
+        \input{chapters/cohomological-studies/metrics-curvature-and-connections/text.tex}
+        \section{Kähler manifolds}
+        \input{chapters/cohomological-studies/kahler-manifolds/text.tex}
+        \section{Hodge star and harmonic forms}
+        \input{chapters/cohomological-studies/hodge-star-and-harmonic-forms/text.tex}
+    % manage-notes:end chapters
+
+    % \printbibliography[heading=bibintoc, title={References}]
+
+\end{document}
