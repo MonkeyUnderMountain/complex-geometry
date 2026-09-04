@@ -1,0 +1,207 @@
+% !TeX root = local-models.tex
+
+On this section, we survey the local models in complex geometry.
+They should be viewed as an analogue of affine schemes in algebraic geometry.
+For language of sheaves and locally ringed space, I refer to my other notes \Yang{}.
+
+% \subsection{Sheaf of holomorphic functions}
+\subsection{Regular local models}
+
+\begin{definition}\label{def:sheaf-of-holomorphic-functions}
+	Let \(\Omega \subset \bbC^n\) be an open set.
+	The \emph{sheaf of holomorphic functions} on \(\Omega\), denoted by \(\scrO_\Omega\),
+	is the assignment that to each open subset \(U \subset \Omega\) assigns the ring \(\scrO_\Omega(U)\) of all holomorphic functions on \(U\),
+	and set the restriction as the usual restriction of functions.
+\end{definition}
+
+A fundamental property of the sheaf of holomorphic functions is its coherence.
+
+\begin{theorem}[Oka's Coherence Theorem]\label{thm:Oka-coherence-theorem-for-open-subsets}
+	The sheaf of holomorphic functions \(\calO_\Omega\) on an open set \(\Omega \subset \bbC^n\) is a coherent sheaf.
+\end{theorem}
+\begin{proof}
+	\Yang{}
+\end{proof}
+
+In general, \(\scrO_\Omega(U)\) is not a Noetherian ring for an open set \(U \subset \Omega\).
+However, its stalks \(\scrO_{\Omega, p}\) at points \(p \in \Omega\) are Noetherian rings.
+
+\begin{example}\label{eg:ring-of-holomorphic-functions-is-not-Noetherian}
+	Let $B \subset \bbC^n$ be the unit open ball.
+	\Yang{To be continued...}
+\end{example}
+
+\begin{proposition}\label{prop:stalk-of-sheaf-of-holomorphic-functions-is-local-noetherian-regular}
+	For any point \(p \in \Omega\), the stalk \(\calO_{\Omega, p}\) of the sheaf of holomorphic functions at \(p\) is a Noetherian ring.
+\end{proposition}
+\begin{proof}
+	\Yang{to be completed.}
+\end{proof}
+
+\begin{remark}\label{rmk:topological_properties_stalk_of_sheaf_of_holomorphic_functions}
+	The sheaf of holomorphic functions \(\calO_\Omega\) is a sheaf of topological rings, where the topology on \(\calO_\Omega(U)\) for an open set \(U \subset \Omega\) is given by the compact-open topology.
+	\Yang{To be continued...}
+\end{remark}
+
+\begin{definition}\label{def:analytic-subset}
+	A subset \(A \subset \Omega\) of an open set \(\Omega \subset \bbC^n\) is called an \emph{analytic subset} if for every point \(p \in \Omega\), there exists a neighborhood \(U\) of \(p\) and finitely many holomorphic functions \(f_1, \ldots, f_k \in \scrO_\Omega(U)\) such that
+	\[ A \cap U = \{ z \in U : f_1(z) = f_2(z) = \cdots = f_k(z) = 0 \}. \]
+\end{definition}
+
+\begin{lemma}
+	Let \(A \subset \Omega\) be a analytic subset of an open set \(\Omega \subset \bbC^n\).
+	Define a sheaf of ideas $\scrI_A$ of $\scrO_\Omega$ by $\scrI_A(U) \coloneqq \{f \in \scrO_\Omega(U)\; |\; f|_A = 0 \}$.
+	Then $\scrI_A$ is a coherent sheaf.
+\end{lemma}
+\begin{proof}
+	\Yang{Demaily, Theorem 4.29, Chapter II.}
+\end{proof}
+
+The following proposition may seems a little strange.
+But \Yang{}
+
+\begin{proposition}
+	Let $B$ be a regular local model of complex analytic space.
+	The for any open subset $U \subset B$ and $x \in U$, there exists an open neighborhood $V \subset U$ of $x$ such that $(V,\scrO_B|_V) \cong (B, \scrO_B)$.
+\end{proposition}
+\begin{proof}
+	\Yang{}
+\end{proof}
+
+
+It is worth noting that we can view a regular local model as a real manifold canonically.
+
+\begin{definition}
+	For a real manifold $M$, there are two sheaves of rings: $\calC^\infty(-,\bbR)$ and $\calC^\infty(-,\bbC)$.
+	We denoted them by $\scrO_M^{\sm,\bbR}$ and $\scrO_M^{\sm,\bbC}$ respectively.
+
+	Let $(B,\scrO_B)$ be a regular local model of complex analytic space.
+	Its \emph{underlying real manifold} is defined as the local ringed space $(B,\scrO_B^{\sm,\bbR})$ togethor with the homomorphism of sheaves $\scrO_B \subset \scrO_B^{\sm,\bbC} \cong \scrO_B^{\sm,\bbR}\otimes_{\underline{\bbR}} \underline{\bbC}$.
+\end{definition}
+
+
+The following says that these structures are intrinct.
+
+\begin{proposition}
+	Let $B$ be a regular local model of complex analytic space and $(B_i, \scrO_B)$ be a covering of $B$ by regular local model.
+	Then the underlying real manifold structures are naturally isomorphic.\Yang{}
+\end{proposition}
+\begin{proof}
+	\Yang{}
+\end{proof}
+
+
+
+% \subsection{Analytic sets}
+\subsection{Analytic local models}
+
+\begin{definition}\label{def:analytic-sets-as-locally-ringed-space}
+	Let \(A \subset \Omega\) be a analytic subset of an open set \(\Omega \subset \bbC^n\).
+	We endow $A$ a structure of locally ringed space by setting its structure sheaf as $\scrO_A \coloneqq ( \scrO_\Omega / \scrI_A )|_{A}$.
+	A locally ringed space isomorphic to such a space is called a \emph{analytic sets}.
+
+	We can extend the definition of analytic subsets to an analytic sets.
+	Namely, for an analytic sets $A$, a subset $B \subset A$ is called \emph{analytic subset} if for every point \(p \in A\), there exists a neighborhood \(U\) of \(p\) and finitely many holomorphic functions \(f_1, \ldots, f_k \in \scrO_A(U)\) such that
+	\[ B \cap U = \{ z \in U : f_1(z) = f_2(z) = \cdots = f_k(z) = 0 \}. \]
+\end{definition}
+
+Given a local model $A$, we also asscoiate it a \emph{sheaf of smooth functions} $\scrO_A^{\sm,\bbC}$ as $\scrO_B^{\sm,\bbC} / (\scrI_A \cdot \scrO_B^{\sm,\bbC})$.
+\Yang{up to now, i don't know whether this sheaf is intrinct.}
+
+\begin{proposition}[Oka's Coherence Theorem]\label{thm:Oka-coherence-theorem-for-anayltic-sets}
+	Let $A$ be an analytic sets.
+	The structure sheaf \(\calO_A\) is coherent.
+	For any $p \in A$, the local ring $\scrO_{A,p}$ is noetherian.
+\end{proposition}
+\begin{proof}
+	By definition and quotient.
+	\Yang{}
+\end{proof}
+
+The anayltic sets may have singularties.
+
+\begin{definition}\label{def:regular-and-singular-points-of-analytic-sets}
+	Let $A$ be an analytic sets.
+	A point $p \in A$ is called \emph{regular} if the local ring $\scrO_{A,p}$ is a regular ring;
+	otherwise, it is called \emph{singular}.
+	We say that $A$ is \emph{regular} if it is regular at every points.
+\end{definition}
+
+\begin{remark}
+	We aviod using the notation of \emph{smooth} in this note to describle an analytic space, since it may be confused with smooth manifolds.
+	\Yang{}
+\end{remark}
+
+\begin{proposition}
+	Let $A$ be an analytic sets.
+	A point $p \in A$ is regular iff there exits an open neighborhood $U$ of $p$ such that $U$ is a complex manifold.
+\end{proposition}
+
+
+
+
+
+\Yang{Zariski topology}
+
+\Yang{irreducible}
+
+\Yang{dimensions}
+
+
+\subsection{Local theory of smooth forms}
+
+Except the structure sheaf, there are some other sheaves are very important in complex geometry, called the sheaf of smooth $(p,q)$-forms.
+We begin from regular local models.
+
+Let $B \subset \bbC^n$ be the open unit ball.
+We have the tangent bundle $TB$ (as real manifolds or smooth vector bundle).
+Since we have global coordinates, the bundle is trivial.
+That is, $TB \cong B \times \bbR^{2n}$, and $\bbR^{2n}$ has a standard basis $\partial_{x_i}, \partial_{y_i}$ given by the coordinate $z_i = x_i + \im y_i$ of $\bbC^n$.
+Consider the complexification $TB^\bbC$ of $TB$, that is,
+\[ TB^\bbC \coloneqq B \times (\bbR^{2n} \otimes_\bbR \bbC). \]
+Using the notation \Yang{}
+\[ \partial_i, \quad \overline{\partial}_i \]
+we have a decomposition
+
+
+Recall that $\underline{R}$ with $R$ being a ring is the locally constant sheaf with values in $R$.
+
+\begin{proposition}
+	There is a canonical decomposition
+	\[ (\Omega_B \otimes_{\scrO_B} \scrO_B^{\sm,\bbC} ) \otimes_{\underline{\bbR}} \underline{\bbC} \cong \Omega_B \otimes_{\scrO_B} \scrO_B^\sm \oplus \overline{\Omega_B \otimes_{\scrO_B} \scrO_B^\sm}.  \]
+
+	\Yang{}
+\end{proposition}
+
+\begin{definition}
+	Let $B$ be a regular local model of complex analytic spaces.
+	The \emph{sheaf of smooth $(p,q)$-forms} is defined as
+	\[ \scrA^{1,0}_B \coloneqq \Omega_B \otimes_{\scrO_B} \scrO_B^{\sm,\bbC}, \quad \scrA^{0,1}_B \coloneqq \overline{\scrA^{1,0}_B}, \quad \scrA^{p,q}_B \coloneqq \bigwedge^p \scrA^{1,0}_B \ten \bigwedge^q \scrA^{0,1}_B. \]
+\end{definition}
+
+\begin{proposition}
+	The sheaf $\scrA_{B}^{p,q}$ is a $\scrO_B^{\sm,\bbC}$-module, and hence $\scrO_B$-module and $\scrO_B^{\sm,\bbR}$-module.
+\end{proposition}
+
+
+
+\begin{definition}
+	Let $A$ be a local model of complex analytic spaces.
+	The \emph{sheaf of smooth $(p,q)$-forms} is defined as
+	\[ \scrA^{1,0}_B \coloneqq \Omega_B \otimes_{\scrO_B} \scrO_B^{\sm,\bbC}, \quad \scrA^{0,1}_B \coloneqq \overline{\scrA^{1,0}_B}, \quad \scrA^{p,q}_B \coloneqq \bigwedge^p \scrA^{1,0}_B \ten \bigwedge^q \scrA^{0,1}_B. \]
+	\Yang{note that $A$ is not a real manifold. hence we need to re-define.}
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

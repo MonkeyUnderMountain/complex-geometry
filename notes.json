@@ -36,11 +36,22 @@
             }
           },
           {
-            "id": "complex-manifolds",
-            "title": "Complex Manifolds",
+            "id": "local-models",
+            "title": "Local models",
             "order": 2,
-            "tex": "chapters/the-first-properties/complex-manifolds/complex-manifolds.tex",
-            "url": "pdf/chapters/the-first-properties/complex-manifolds/complex-manifolds.pdf",
+            "tex": "chapters/the-first-properties/local-models/local-models.tex",
+            "url": "pdf/chapters/the-first-properties/local-models/local-models.pdf",
+            "status": {
+              "published": 0,
+              "finished": 0
+            }
+          },
+          {
+            "id": "complex-manifolds-and-analytic-spaces",
+            "title": "Complex manifolds and analytic spaces",
+            "order": 3,
+            "tex": "chapters/the-first-properties/complex-manifolds-and-analytic-spaces/complex-manifolds-and-analytic-spaces.tex",
+            "url": "pdf/chapters/the-first-properties/complex-manifolds-and-analytic-spaces/complex-manifolds-and-analytic-spaces.pdf",
             "status": {
               "published": 0,
               "finished": 0
@@ -49,7 +60,7 @@
           {
             "id": "meromorphic-functions-and-siegel-theorem-on-function-fields",
             "title": "Meromorphic functions",
-            "order": 3,
+            "order": 4,
             "tex": "chapters/the-first-properties/meromorphic-functions-and-siegel-theorem-on-function-fields/meromorphic-functions-and-siegel-theorem-on-function-fields.tex",
             "url": "pdf/chapters/the-first-properties/meromorphic-functions-and-siegel-theorem-on-function-fields/meromorphic-functions-and-siegel-theorem-on-function-fields.pdf",
             "status": {
@@ -58,11 +69,11 @@
             }
           },
           {
-            "id": "sheaves-and-bundles-on-complex-manifolds",
-            "title": "Sheaves and Bundles on Complex Manifolds",
-            "order": 4,
-            "tex": "chapters/the-first-properties/sheaves-and-bundles-on-complex-manifolds/sheaves-and-bundles-on-complex-manifolds.tex",
-            "url": "pdf/chapters/the-first-properties/sheaves-and-bundles-on-complex-manifolds/sheaves-and-bundles-on-complex-manifolds.pdf",
+            "id": "bundles-and-sheaves",
+            "title": "Bundles and sheaves",
+            "order": 5,
+            "tex": "chapters/the-first-properties/bundles-and-sheaves/bundles-and-sheaves.tex",
+            "url": "pdf/chapters/the-first-properties/bundles-and-sheaves/bundles-and-sheaves.pdf",
             "status": {
               "published": 0,
               "finished": 0
@@ -71,11 +82,11 @@
         ]
       },
       {
-        "id": "cohomological-studies",
-        "title": "Cohomological studies",
+        "id": "cohomology-and-intersection",
+        "title": "Cohomology and intersection",
         "order": 2,
-        "tex": "chapters/cohomological-studies/cohomological-studies.tex",
-        "url": "pdf/chapters/cohomological-studies/cohomological-studies.pdf",
+        "tex": "chapters/cohomology-and-intersection/cohomology-and-intersection.tex",
+        "url": "pdf/chapters/cohomology-and-intersection/cohomology-and-intersection.pdf",
         "status": {
           "published": 0,
           "finished": 0
@@ -85,30 +96,43 @@
             "id": "forms-and-currents",
             "title": "Forms and Currents",
             "order": 1,
-            "tex": "chapters/cohomological-studies/forms-and-currents/forms-and-currents.tex",
-            "url": "pdf/chapters/cohomological-studies/forms-and-currents/forms-and-currents.pdf",
+            "tex": "chapters/cohomology-and-intersection/forms-and-currents/forms-and-currents.tex",
+            "url": "pdf/chapters/cohomology-and-intersection/forms-and-currents/forms-and-currents.pdf",
             "status": {
               "published": 0,
               "finished": 0
             }
           },
           {
-            "id": "cohomology-in-complex-geometry",
-            "title": "Cohomology Theories in Complex Geometry",
+            "id": "cohomology-theories",
+            "title": "Cohomology theories",
             "order": 2,
-            "tex": "chapters/cohomological-studies/cohomology-in-complex-geometry/cohomology-in-complex-geometry.tex",
-            "url": "pdf/chapters/cohomological-studies/cohomology-in-complex-geometry/cohomology-in-complex-geometry.pdf",
+            "tex": "chapters/cohomology-and-intersection/cohomology-theories/cohomology-theories.tex",
+            "url": "pdf/chapters/cohomology-and-intersection/cohomology-theories/cohomology-theories.pdf",
             "status": {
               "published": 0,
               "finished": 0
             }
-          },
+          }
+        ]
+      },
+      {
+        "id": "hermitian-and-kahler-geometry",
+        "title": "Hermitian and Kahler geometry",
+        "order": 3,
+        "tex": "chapters/hermitian-and-kahler-geometry/hermitian-and-kahler-geometry.tex",
+        "url": "pdf/chapters/hermitian-and-kahler-geometry/hermitian-and-kahler-geometry.pdf",
+        "status": {
+          "published": 0,
+          "finished": 0
+        },
+        "sections": [
           {
             "id": "metrics-curvature-and-connections",
             "title": "Metrics, curvature and connections",
-            "order": 3,
-            "tex": "chapters/cohomological-studies/metrics-curvature-and-connections/metrics-curvature-and-connections.tex",
-            "url": "pdf/chapters/cohomological-studies/metrics-curvature-and-connections/metrics-curvature-and-connections.pdf",
+            "order": 1,
+            "tex": "chapters/hermitian-and-kahler-geometry/metrics-curvature-and-connections/metrics-curvature-and-connections.tex",
+            "url": "pdf/chapters/hermitian-and-kahler-geometry/metrics-curvature-and-connections/metrics-curvature-and-connections.pdf",
             "status": {
               "published": 0,
               "finished": 0
@@ -117,9 +141,9 @@
           {
             "id": "kahler-manifolds",
             "title": "Kähler manifolds",
-            "order": 4,
-            "tex": "chapters/cohomological-studies/kahler-manifolds/kahler-manifolds.tex",
-            "url": "pdf/chapters/cohomological-studies/kahler-manifolds/kahler-manifolds.pdf",
+            "order": 2,
+            "tex": "chapters/hermitian-and-kahler-geometry/kahler-manifolds/kahler-manifolds.tex",
+            "url": "pdf/chapters/hermitian-and-kahler-geometry/kahler-manifolds/kahler-manifolds.pdf",
             "status": {
               "published": 0,
               "finished": 0
@@ -128,9 +152,9 @@
           {
             "id": "hodge-star-and-harmonic-forms",
             "title": "Hodge star and harmonic forms",
-            "order": 5,
-            "tex": "chapters/cohomological-studies/hodge-star-and-harmonic-forms/hodge-star-and-harmonic-forms.tex",
-            "url": "pdf/chapters/cohomological-studies/hodge-star-and-harmonic-forms/hodge-star-and-harmonic-forms.pdf",
+            "order": 3,
+            "tex": "chapters/hermitian-and-kahler-geometry/hodge-star-and-harmonic-forms/hodge-star-and-harmonic-forms.tex",
+            "url": "pdf/chapters/hermitian-and-kahler-geometry/hodge-star-and-harmonic-forms/hodge-star-and-harmonic-forms.pdf",
             "status": {
               "published": 0,
               "finished": 0

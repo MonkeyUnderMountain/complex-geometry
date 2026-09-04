@@ -1,0 +1,392 @@
+% !TeX root = complex-manifolds-and-analytic-spaces.tex
+
+\subsection{Complex manifolds}
+
+\begin{definition}\label{def:complex-manifold-by-altas}
+	A \emph{complex manifold} of complex dimension \(n\) is a topological space \(M\) such that
+	\begin{enumerate}
+		\item \(M\) is Hausdorff and second countable;
+		\item \(M\) is locally homeomorphic to \(\bbC^n\), i.e., for every point \(p\in M\), there exists an open neighborhood \(U\) of \(p\) and a homeomorphism \(\varphi: U\to V\subset \bbC^n\), where \(V\) is an open subset of \(\bbC^n\),
+		      The pair \((U,\varphi)\) is called a \emph{chart};
+		\item if \((U,\varphi)\) and \((U',\varphi')\) are two charts with \(U\cap U'\neq \emptyset\), then the transition map
+		      \[
+			      \varphi'\circ \varphi^{-1}: \varphi(U\cap U')\to \varphi'(U\cap U')
+		      \]
+		      is holomorphic.
+	\end{enumerate}
+	The collection of all charts \(\{(U_\alpha,\varphi_\alpha)\}\) that cover \(M\) is called an \emph{atlas}.
+	If the atlas is maximal, it is called a \emph{complex structure} on \(M\).
+\end{definition}
+
+Another way to define complex manifolds is to use the language of ringed spaces.
+
+\begin{definition}\label{def:complex-manifold-as-ringed-space}
+	A \emph{complex manifold} of complex dimension \(n\) is a locally ringed space \((M,\calO_M)\) such that
+	\begin{enumerate}
+		\item \(M\) is Hausdorff and second countable;
+		\item for every point \(p\in M\), there exists an open neighborhood \(U\) of \(p\) such that \((U,\calO_M|_U)\) is isomorphic to \((B,\calO_B)\), where \(B\) is the unit open ball in \(\bbC^n\) and \(\calO_B\) is the sheaf of holomorphic functions on \(B\).
+	\end{enumerate}
+\end{definition}
+
+\begin{question}\label{qs:existence_and_uniqueness_of_complex_structure}
+	Given a topological space \(M\) that is Hausdorff and second countable, when does it admit a complex structure?
+	Is such a complex structure unique?
+\end{question}
+
+For complex dimension \(1\), the answer is positive and well-known.
+For higher dimensions, the answer is negative in general.
+In particular, does the \(6\)-sphere \(S^6\) admit a complex structure?
+This is a famous open problem in complex geometry.
+
+\begin{question}\label{qs:complex_structure_on_S6}
+	Does the \(6\)-sphere \(S^6\) admit a complex structure?
+\end{question}
+
+\begin{definition}\label{def:holomorphic_map_between_complex_manifolds}
+	Let \(M\) and \(N\) be two complex manifolds.
+	A continuous map \(f: M\to N\) is called \emph{holomorphic} if for every point \(p\in M\), there exist charts \((U,\varphi)\) of \(M\) around \(p\) and \((V,\psi)\) of \(N\) around \(f(p)\) with \(U \subset f^{-1}(V)\) such that
+	\[
+		\psi\circ f\circ \varphi^{-1}: \varphi(U)\to \psi(V)
+	\]
+	is holomorphic.
+\end{definition}
+
+\begin{definition}\label{def:submanifold_of_complex_manifold}
+	Let \(M\) be a complex manifold of complex dimension \(n\).
+	A subset \(S\subset M\) is called a \emph{complex submanifold} of complex dimension \(k\) if for every point \(p\in S\), there exist a chart \((U,\varphi)\) of \(M\) around \(p\) such that
+	\[
+		\varphi(U\cap S) = \varphi(U)\cap (\bbC^k\times \{0\}) \subset \bbC^n,
+	\]
+	where we identify \(\bbC^n\) with \(\bbC^k\times \bbC^{n-k}\).
+	This gives a chart of \(S\) around \(p\).
+	Endowed with the induced topology and the induced complex structure, \(S\) is a complex manifold of complex dimension \(k\).
+\end{definition}
+
+\begin{example}\label{eg:complex_vector_space_as_complex_manifold}
+	Any complex vector space \(V\) of complex dimension \(n\) is a complex manifold of complex dimension \(n\).
+\end{example}
+
+\begin{example}\label{eg:complex_projective_space_as_complex_manifold}
+	The complex projective space \(\bbC\bbP^n:= \bbC^{n+1}\setminus \{0\}/\bbC^\times\) is a complex manifold of complex dimension \(n\).
+	In fact, \(\bbC\bbP^n\) can be covered by \(n+1\) charts, each of which is biholomorphic to \(\bbC^n\).
+	For example, the chart \(U_0 = \{[z_0: z_1: \cdots: z_n]\in \bbC\bbP^n: z_0\neq 0\}\) is biholomorphic to \(\bbC^n\) via the map
+	\[
+		[z_0: z_1: \cdots: z_n] \mapsto \left(\frac{z_1}{z_0}, \frac{z_2}{z_0}, \ldots, \frac{z_n}{z_0}\right).
+	\]
+	The other charts are defined similarly.
+\end{example}
+
+\begin{proposition}\label{prop:complex_submanifold_by_holomorphic_implicit_function_theorem}
+	Let \(M\) and \(N\) are complex manifolds of complex dimension \(n\) and \(m\) respectively, with \(n \geq m\).
+	If \(f: M\to N\) is a holomorphic map such that \(p\) is a regular value of \(f\),
+	i.e., the tangent map \(\upd f_x\) is surjective for every \(x\in f^{-1}(p)\),
+	then \(f^{-1}(p)\) is a complex submanifold of \(M\) of complex dimension \(n - m\).
+\end{proposition}
+\begin{proof}
+	For every point \(q\in f^{-1}(p)\), choose charts \((U,\varphi)\) of \(M\) around \(q\) and \((V,\psi)\) of \(N\) around \(p\) such that \(f(U) \subset V\).
+	By changing coordinates if necessary, we may assume that \(\det(\partial f/\partial w)(q) \neq 0\),
+	where we write the coordinates of \(\varphi(U)\) as \((z,w) = (z_1, \ldots, z_{n-m}, w_1, \ldots, w_m) \in \bbC^{n-m} \times \bbC^m\).
+	Then by the Holomorphic Implicit Function Theorem (\cref{thm:holomorphic_implicit_function_theorem}),
+	there exist open neighborhoods \(U'\) of \(q\) such that \(f^{-1}(p)\cap U'\) is biholomorphic to an open subset of \(\bbC^{n-m}\).
+\end{proof}
+
+\begin{example}\label{eg:non_singular_complex_algebraic_variety_as_complex_manifold}
+	Let \(X \subset \bbC^n\) be a complex algebraic variety defined by the vanishing of polynomials \(f_1, \ldots, f_m \in \bbC[z_1, \ldots, z_n]\).
+	Suppose that \(X\) is non-singular, i.e., for every point \(p\in X\), the Jacobian matrix \(\left( \partial_{z_j}f_i(p) \right)_{i,j}\) has maximal rank \(r\).
+	Then \(X\) is a complex submanifold of \(\bbC^n\) of complex dimension \(n - r\).
+\end{example}
+
+\begin{example}\label{eg:hypersurface_in_CPn_as_complex_manifold}
+	A \emph{hypersurface} \(H\) in \(\bbC\bbP^n\) is the zero locus of a homogeneous polynomial \(f \in \bbC[z_0, z_1, \ldots, z_n]\).
+	Suppose \(0\) is a regular value of \(f: \bbC^{n+1}\setminus \{0\} \to \bbC\).
+	On each chart \(U_i \cong \bbC^n\) of \(\bbC\bbP^n\), it defines a holomorphic function \(f_i: U_i \to \bbC, [z] \mapsto z = (z_1, \ldots, z_{i-1}, 1, z_{i+1}, \ldots, z_n) \mapsto f(z)\).
+	The regularity condition implies that \(0\) is a regular value of each \(f_i\).
+	Hence \(H \cap U_i = f_i^{-1}(0)\) is a complex submanifold of \(U_i\) of complex dimension \(n-1\) by \cref{prop:complex_submanifold_by_holomorphic_implicit_function_theorem}.
+	Gluing these local pieces together, we see that \(H\) is a complex submanifold of \(\bbC\bbP^n\) of complex dimension \(n-1\).
+	% Concretely, the Fermat hypersurface \(H\), which is defined by the equation \(z_0^m + z_1^m + \ldots + z_n^m = 0\) in \(\bbC\bbP^n\) for some integer \(m \geq 1\), is a complex manifold of complex dimension \(n-1\).
+\end{example}
+
+\begin{proposition}\label{prop:quotient_by_a_discrete_group_of_holomorphic_automorphisms}
+	Let \(M\) be a complex manifold and let \(G\) be a discrete group acting on \(M\) by holomorphic automorphisms.
+	If the action is free and properly discontinuous, then the quotient space \(M/G\) is a complex manifold and the quotient map \(\pi: M\to M/G\) is a holomorphic covering map.
+\end{proposition}
+\begin{proof}
+	For every point \(p\in M/G\), choose a point \(q\in M\) such that \(\pi(q) = p\).
+	Since the action is free and properly discontinuous (see \cref{rmk:properly_discontinuous_action}), there exists an open neighborhood \(U\) of \(q\) such that \(gU \cap U = \emptyset\) for all \(g\in G\setminus \{e\}\).
+	Then \(\pi|_U: U \to \pi(U)\) is a homeomorphism.
+	This gives a chart of \(M/G\) around \(p\).
+	If we have two such charts \((\pi(U),\varphi)\) and \((\pi(U'),\varphi')\) of \(M/G\) whose intersection is non-empty, WLOG, assume that \(U \cap U' \neq \emptyset\).
+	Then \(\pi^{-1}(\pi(U) \cap \pi(U')) = \bigsqcup_{g\in G} g(U \cap U')\).
+	The transition map of \(U\) and \(U'\) gives the transition map of \(\pi(U)\) and \(\pi(U')\).
+	Since the action of \(G\) is by holomorphic automorphisms, the transition maps are holomorphic.
+\end{proof}
+\begin{remark}\label{rmk:properly_discontinuous_action}
+	Recall that an action of a group \(G\) on a topological space \(X\) is said to be \emph{properly discontinuous} if for every compact subset \(K \subset X\), the set \(\{g\in G: gK \cap K \neq \emptyset\}\) is finite.
+	If \(G\) is a discrete group acting on a manifold \(M\) by diffeomorphisms,
+	then the action is properly discontinuous and free if and only if for every point \(p\in M\),
+	there exists an open neighborhood \(U\) of \(p\) such that \(gU \cap U = \emptyset\) for all \(g\in G\setminus \{e\}\).
+\end{remark}
+
+\begin{example}\label{eg:elliptic_curves_as_complex_manifolds_by_quotient_of_C}
+	Let \(\Lambda \subset \bbC\) be a lattice, i.e., a discrete subgroup of \(\bbC\) generated by two \(\bbR\)-linearly independent complex numbers.
+	Then \(\Lambda\) is isomorphic to \(\bbZ^2\) as an abstract group and acts on \(\bbC\) by translations, which are holomorphic automorphisms of \(\bbC\).
+	Then the quotient space \(\bbC/\Lambda\) is a complex manifold of complex dimension \(1\) by \cref{prop:quotient_by_a_discrete_group_of_holomorphic_automorphisms}.
+	Such a complex manifold is called an \emph{elliptic curve}.
+	As real manifolds, it is diffeomorphic to \(S^1 \times S^1\).
+\end{example}
+
+\begin{example}\label{eg:hopf_manifolds_as_complex_manifolds_by_quotient_of_Cn}
+	Fix \(\alpha \in \bbC^\times\) with \(|\alpha| \neq 1\).
+	Let \(\bbZ\) act on \(\bbC^n\setminus \{0\}\) by \(k \cdot z = \alpha^k z\) for every \(k\in \bbZ\) and \(z\in \bbC^n\setminus \{0\}\).
+	This action is free and properly discontinuous.
+	Then the quotient space \((\bbC^n\setminus \{0\})/\bbZ\) is a complex manifold of complex dimension \(n\) by \cref{prop:quotient_by_a_discrete_group_of_holomorphic_automorphisms}.
+	Such a complex manifold is called a \emph{Hopf manifold}.
+\end{example}
+
+\begin{example}\label{eg:Iwasawa_manifold_as_complex_manifold_by_quotient_of_complex_Heisenberg_group}
+	Let
+	\[ M = \left\{ \begin{pmatrix}
+			1 & z_1 & z_3 \\
+			0 & 1   & z_2 \\
+			0 & 0   & 1
+		\end{pmatrix} \;\middle|\; z_1, z_2, z_3 \in \bbC \right\} \]
+	be the complex Heisenberg group, which is biholomorphic to \(\bbC^3\).
+	Let \(\Gamma := M \cap \GL(3,\bbZ[\im])\).
+	Then \(\Gamma\) is a discrete subgroup of \(M\) and acts on \(M\) by left multiplication, which are holomorphic automorphisms of \(M\).
+	The action is free and properly discontinuous.
+	Then the quotient space \(M/\Gamma\) is a complex manifold of complex dimension \(3\) by \cref{prop:quotient_by_a_discrete_group_of_holomorphic_automorphisms}.
+	It is called the \emph{Iwasawa manifold}.
+	One can replace \(\Gamma\) by other cocompact discrete subgroups of \(M\).
+\end{example}
+
+\subsection{Almost complex structures}
+
+Let \(X\) be a complex manifold of complex dimension \(n\).
+The tangent bundle \(TX\) is a real vector bundle of rank \(2n\).
+There is a natural endomorphism \(J: TX\to TX\) induced by the complex structure of \(X\), i.e., for every point \(p\in X\), \(J_p: T_pX\to T_pX\) is the multiplication by \(\im\).
+We have \(J^2 = -\id\).
+
+\begin{definition}\label{def:almost_complex_structure}
+	Let \(M\) be a smooth manifold of real dimension \(2n\).
+	An \emph{almost complex structure} on \(M\) is a smooth endomorphism \(J: TM\to TM\) such that \(J^2 = -\id\).
+	The pair \((M,J)\) is called an \emph{almost complex manifold}.
+\end{definition}
+
+% \begin{definition}\label{def:J_holomorphic_function}
+%     Let \((M,J)\) be an almost complex manifold.
+%     A smooth function \(f: M\to \bbC\) is called \emph{\(J\)-holomorphic} if
+%     \[ \upd f \circ J = \im \cdot \upd f. \]
+% \end{definition}
+
+\begin{question}\label{qs:existence_of_almost_complex_structure}
+	Given a smooth manifold \(M\) of real dimension \(2n\), when does it admit an almost complex structure?
+	Is such an almost complex structure unique?
+\end{question}
+
+Giving an almost complex structure \(J\) on a smooth manifold \(M\) is equivalent to giving the tangent bundle \(TM\) the structure of a complex vector bundle.
+Hence the existence of almost complex structures is a purely topological problem.
+Note that to find a complex structure on \(M\) needs to solve some non-linear partial differential equations, which is much harder.
+
+\begin{example}\label{eg:almost_complex_structure_on_S6}
+	The \(6\)-sphere \(S^6\) admits an almost complex structure.
+	In fact, \(S^6\) can be identified with the unit sphere in the imaginary octonions \(\Image \bbO\) (see \cref{rmk:fundamental_facts_about_octonion_for_almost_complex_structure_on_S6}).
+	Denote by \(m(x,y)\) the octonionic multiplication of \(x,y\in \bbO\).
+	For every point \(p\in S^6\), the tangent space \(T_pS^6\) can be identified with the orthogonal complement of \(\bbR p\) in \(\Image \bbO\).
+	Define \(J_p: T_pS^6 \to T_pS^6\) by \(J_p(v) = m(p,v)\).
+	Then \(J_p^2(v) = p(pv) = -v\) for every \(v\in T_pS^6\).
+	Thus we get an almost complex structure on \(S^6\).
+\end{example}
+\begin{remark}\label{rmk:fundamental_facts_about_octonion_for_almost_complex_structure_on_S6}
+	Recall some fundamental facts about the octonions \(\bbO\):
+	\begin{enumerate}
+		\item \(\bbO\) is an \(8\)-dimensional normed vector space over \(\bbR\) with an orthogonal basis \(\{1\}\cup \{e_i|i=1,\ldots,7\}\).
+		      The subspace spanned by \(\{e_i\}\) is called the space of imaginary octonions and denoted by \(\Image \bbO\).
+		\item The multiplication \(m: \bbO \times \bbO \to \bbO\) is a bilinear map and satisfies the distributive law and the norm multiplicative law \(\|xy\| = \|x\|\|y\|\) for all \(x,y\in \bbO\).
+		      It is given by the following Fano plane \(\bbP^2(\bbF_2)\):
+		      \begin{center}
+			      \usetikzlibrary{calc, decorations.markings}
+			      \begin{tikzpicture}[scale=1.5, >=stealth,
+					      midarrow/.style={decoration={markings, mark=at position 0.5 with {\arrow{>}}}, postaction={decorate}}]
+				      % Define the vertices of the triangle
+				      \coordinate (A) at (0, 2);              %e6
+				      \coordinate (B) at (-1.732, -1);        %e3
+				      \coordinate (C) at (1.732, -1);         %e5
+				      % Define the center and midpoints
+				      \coordinate (O) at (0, 0);              %e7
+				      \coordinate (D) at (0, -1);             %e2
+				      \coordinate (E) at (0.866, 0.5);        %e1
+				      \coordinate (F) at (-0.866, 0.5);       %e4
+
+				      % Draw all 7 lines of the Fano plane with arrows in middle
+				      % Line 1: e3 -> e4 -> e6
+				      \draw[thick, midarrow] (B) -- (F);
+				      \draw[thick, midarrow] (F) -- (A);
+				      % Line 2: e6 -> e1 -> e5
+				      \draw[thick, midarrow] (A) -- (E);
+				      \draw[thick, midarrow] (E) -- (C);
+				      % Line 3: e5 -> e2 -> e3
+				      \draw[thick, midarrow] (C) -- (D);
+				      \draw[thick, midarrow] (D) -- (B);
+				      % Line 4: e6 -> e7 -> e2
+				      \draw[thick, midarrow] (A) -- (O);
+				      \draw[thick, midarrow] (O) -- (D);
+				      % Line 5: e5 -> e7 -> e4
+				      \draw[thick, midarrow] (C) -- (O);
+				      \draw[thick, midarrow] (O) -- (F);
+				      % Line 6: e3 -> e7 -> e1
+				      \draw[thick, midarrow] (B) -- (O);
+				      \draw[thick, midarrow] (O) -- (E);
+				      % Line 7: e1, e2, e7 (as a circle passing through these three points)
+				      \draw[thick, decoration={markings, mark=at position 0.166 with {\arrow{<}}, mark=at position 0.5 with {\arrow{<}}, mark=at position 0.833 with {\arrow{<}}}, postaction={decorate}]
+				      (0, 0) circle (1);
+				      % Place the labels
+				      \node at (A) [above]        {\(e_6\)};
+				      \node at (B) [below left]   {\(e_3\)};
+				      \node at (C) [below right]  {\(e_5\)};
+				      \node at (D) [below]        {\(e_7\)};
+				      \node at (E) [right]        {\(e_2\)};
+				      \node at (F) [left]         {\(e_1\)};
+				      \node at (O) [right]        {\(e_4\)};
+
+				      % Add dots for the points
+				      \filldraw[black] (A) circle (2pt);
+				      \filldraw[black] (B) circle (2pt);
+				      \filldraw[black] (C) circle (2pt);
+				      \filldraw[black] (D) circle (2pt);
+				      \filldraw[black] (E) circle (2pt);
+				      \filldraw[black] (F) circle (2pt);
+				      \filldraw[black] (O) circle (2pt);
+			      \end{tikzpicture}
+		      \end{center}
+		      If \(e_i \to e_j \to e_k\) is a directed line in the Fano plane, then \(e_i e_j = e_k\), \(e_j e_k = e_i\), and \(e_k e_i = e_j\).
+		      The multiplication is anti-commutative, i.e., \(e_i e_j = - e_j e_i\) for all \(i\neq j\).
+		      And we have \(e_i^2 = -1\) for all \(i\).
+	\end{enumerate}
+	\Yang{To be checked...}
+\end{remark}
+
+Let \((M,J)\) be an almost complex manifold.
+Then the complexified tangent bundle \(TM_\bbC  := TM \otimes_\bbR \bbC\) splits into the direct sum of two complex subbundles
+\[ T M_\bbC = T^{1,0}M \oplus T^{0,1}M, \]
+where
+\[ T^{1,0}M := \ker (\im \id - J), \quad T^{0,1}M := \ker (\im \id + J). \]
+We have \(\overline{T^{1,0}M} = T^{0,1}M\) and both \(T^{1,0}M\) and \(T^{0,1}M\) are complex vector bundles of rank \(n\).
+This decomposition induces a decomposition of the complexified cotangent bundle
+\[ \Omega^1(M) := (TM_\bbC)^* = (T^{1,0}M)^* \oplus (T^{0,1}M)^* =: \Omega^{1,0}(M) \oplus \Omega^{0,1}(M). \]
+More generally, for every \(p,q \geq 0\), define
+\[ \Omega^{p,q}(M) := \wedge^p (T^{1,0}M)^* \otimes \wedge^q (T^{0,1}M)^* \subset \wedge^{p+q} \Omega^1(M). \]
+Then we have the decomposition
+\[ \Omega^k(M) \coloneqq \wedge^k \Omega^1(M) = \bigoplus_{p+q=k} \Omega^{p,q}(M). \]
+The elements of \(\Omega^{p,q}(M)\) are called \emph{differential forms of type \((p,q)\)} or \emph{\((p,q)\)-forms} for short.
+% \Yang{To be continued...}
+
+Recall the \emph{exterior differential operator} \(\upd:\Omega^k(M) \to \Omega^{k+1}(M)\) is locally given by
+\[ \upd\left(\sum_I f_I \upd x_I\right) = \sum_I \sum_{j=1}^{2n} \frac{\partial f_I}{\partial x_j} \upd x_j \wedge \upd x_I, \]
+where \(I\) runs over all multi-indices with \(|I| = k\) and \(x_1, \ldots, x_{2n}\) are local coordinates on \(M\).
+
+\begin{proposition}\label{prop:decomposition_of_differential_operator_on_almost_complex_manifold}
+	There exist differential operators
+	\[ \partial: \Omega^{p,q}(M) \to \Omega^{p+1,q}(M), \quad \mu: \Omega^{p,q}(M) \to \Omega^{p+2,q-1}(M) \]
+	such that
+	\[ \upd = \partial + \overline{\partial} + \mu + \overline{\mu}. \]
+\end{proposition}
+In a diagram:
+\begin{center}
+	\begin{tikzpicture}
+		\matrix (m) [matrix of math nodes, column sep=2em, row sep=2em] {
+			\Omega^{p-1,q+2} & \bullet        & \bullet        & \bullet          & \bullet      \\
+			\bullet          & \Omega^{p,q+1} & \bullet        & \bullet          & \bullet      \\
+			\bullet          & \Omega^{p,q}   & \Omega^{p+1,q} & \bullet          & \bullet      \\
+			\bullet          & \bullet        & \bullet        & \Omega^{p+2,q-1} & \bullet      \\
+			                 &                &                & \Omega^{k}       & \Omega^{k+1} \\
+		};
+		% Draw a horizontal line before the row containing \Omega^k (above row 5)
+		\draw (m-4-1.south) -- (m-4-5.south);
+		% Draw a dashed line passing through \Omega^{p-1,q+1} and \Omega^k
+		\draw[dashed] (m-2-1) -- (m-5-4);
+		\draw[dashed] (m-1-1) -- (m-5-5);
+		% Draw arrows for the operators
+		\draw[->] (m-3-2) -- (m-3-3) node[midway, above] {\(\partial\)};
+		\draw[->] (m-3-2) -- (m-2-2) node[midway, right] {\(\overline{\partial}\)};
+		\draw[->] (m-3-2) -- (m-4-4) node[midway, right] {\(\mu\)};
+		\draw[->] (m-3-2) -- (m-1-1) node[midway, above] {\(\overline{\mu}\)};
+		\draw[->] (m-5-4) -- (m-5-5) node[midway, above] {\(\upd\)};
+	\end{tikzpicture}
+\end{center}
+\begin{proof}[Proof of \cref{prop:decomposition_of_differential_operator_on_almost_complex_manifold}]
+
+	\Yang{To be continued...}
+\end{proof}
+
+% \begin{proposition}\label{prop:properties_of_differential_operators}
+%     The operators \(\partial\) and \(\mu\) satisfy the following properties:
+%     \begin{enumerate}
+%         \item 
+%     \end{enumerate}
+%     \Yang{To be continued...}
+% \end{proposition}
+
+\begin{definition}\label{def:Nijenhuis_operator}
+	The operator \(\mu\) in \cref{prop:decomposition_of_differential_operator_on_almost_complex_manifold} is called the \emph{Nijenhuis operator} of the almost complex structure \(J\).
+	If \(\mu = 0\), then \(J\) is called \emph{integrable}.
+	In this case, we have \(\upd = \partial + \overline{\partial}\).
+	% \Yang{To be continued...}
+\end{definition}
+
+\begin{example}\label{eg:Nijenhuis_operator_on_S6_for_the_almost_complex_structure_on_S6_by_octonion}
+	Let \(J\) be the almost complex structure on \(S^6\) defined in \cref{eg:almost_complex_structure_on_S6}.
+
+	\Yang{To be continued...}
+\end{example}
+
+\begin{proposition}\label{prop:Nijenhuis_operator_on_complex_manifold}
+	Let \((M,J)\) be an almost complex manifold.
+	If \(J\) is induced by a complex structure on \(M\), then \(J\) is integrable, i.e., the Nijenhuis operator \(\mu = 0\).
+\end{proposition}
+\begin{proof}
+	\Yang{To be continued...}
+\end{proof}
+
+The converse of \cref{prop:Nijenhuis_operator_on_complex_manifold} is also true, which is the famous Newlander-Nirenberg theorem.
+\Yang{To add reference...}
+
+\begin{theorem}[Newlander-Nirenberg Theorem]\label{thm:newlander_nirenberg_theorem}
+	Let \((M,J)\) be an almost complex manifold of real dimension \(2n\).
+	If \(\mu = 0\), then \(J\) is induced by a complex structure on \(M\).
+\end{theorem}
+
+\begin{proposition}\label{prop:integrable_almost_complex_structure_and_partial_square_zero}
+	Let \((M,J)\) be an almost complex manifold.
+	Then \(J\) is integrable if and only if \(\partial^2 = 0\).
+\end{proposition}
+
+
+\subsection{Complex analytic space}
+
+\begin{definition}\label{def:complex-analytic-space}
+	A \emph{(complex) analytic space} is a locally ringed space $(X, \scrO_X)$ such that
+	\begin{itemize}
+		\item $X$ is a Hausdorff, locally compact and second countable;
+		\item it admits an open covering by analytic sets as locally ringed space.
+	\end{itemize}
+\end{definition}
+
+\begin{proposition}
+	Let $X$ be a compact connected analytic space.
+	Then $\scrO_X(X) = \bbC$.
+\end{proposition}
+\begin{proof}
+	\Yang{}
+\end{proof}
+
+
+
+\begin{definition}
+	\Yang{define the smooth $(p,q)$-form}
+\end{definition}
+
+
+
+
+
+
