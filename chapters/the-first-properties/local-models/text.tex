@@ -43,19 +43,6 @@ However, its stalks \(\scrO_{\Omega, p}\) at points \(p \in \Omega\) are Noether
 	\Yang{To be continued...}
 \end{remark}
 
-\begin{definition}\label{def:analytic-subset}
-	A subset \(A \subset \Omega\) of an open set \(\Omega \subset \bbC^n\) is called an \emph{analytic subset} if for every point \(p \in \Omega\), there exists a neighborhood \(U\) of \(p\) and finitely many holomorphic functions \(f_1, \ldots, f_k \in \scrO_\Omega(U)\) such that
-	\[ A \cap U = \{ z \in U : f_1(z) = f_2(z) = \cdots = f_k(z) = 0 \}. \]
-\end{definition}
-
-\begin{lemma}
-	Let \(A \subset \Omega\) be a analytic subset of an open set \(\Omega \subset \bbC^n\).
-	Define a sheaf of ideas $\scrI_A$ of $\scrO_\Omega$ by $\scrI_A(U) \coloneqq \{f \in \scrO_\Omega(U)\; |\; f|_A = 0 \}$.
-	Then $\scrI_A$ is a coherent sheaf.
-\end{lemma}
-\begin{proof}
-	\Yang{Demaily, Theorem 4.29, Chapter II.}
-\end{proof}
 
 The following proposition may seems a little strange.
 But \Yang{}
@@ -90,11 +77,40 @@ The following says that these structures are intrinct.
 	\Yang{}
 \end{proof}
 
+when given a local model, we have fixed the following sheaves
+\[
+	\begin{tikzcd}
+		\underline{\bbC} &\scrO_B & \scrO_B^{\sm,\bbC} & \scrO_B^{\cnt,\bbC} \\
+		\underline{\bbR} && \scrO_B^{\sm,\bbR} & \scrO_B^{\cnt,\bbR} \\
+		\arrow[from=1-1, to=1-2, hook]
+		\arrow[from=1-2, to=1-3, hook]
+		\arrow[from=1-3, to=1-4, hook]
+		\arrow[from=2-1, to=2-3, hook]
+		\arrow[from=2-3, to=2-4, hook]
+		\arrow[from=2-1, to=1-1, hook]
+		\arrow[from=2-3, to=1-3, hook]
+		\arrow[from=2-4, to=1-4, hook]
+	\end{tikzcd}
+\]
+
 
 
 % \subsection{Analytic sets}
 \subsection{Analytic local models}
 
+\begin{definition}\label{def:analytic-subset}
+	A subset \(A \subset \Omega\) of an open set \(\Omega \subset \bbC^n\) is called an \emph{analytic subset} if for every point \(p \in \Omega\), there exists a neighborhood \(U\) of \(p\) and finitely many holomorphic functions \(f_1, \ldots, f_k \in \scrO_\Omega(U)\) such that
+	\[ A \cap U = \{ z \in U : f_1(z) = f_2(z) = \cdots = f_k(z) = 0 \}. \]
+\end{definition}
+
+\begin{lemma}
+	Let \(A \subset \Omega\) be a analytic subset of an open set \(\Omega \subset \bbC^n\).
+	Define a sheaf of ideas $\scrI_A$ of $\scrO_\Omega$ by $\scrI_A(U) \coloneqq \{f \in \scrO_\Omega(U)\; |\; f|_A = 0 \}$.
+	Then $\scrI_A$ is a coherent sheaf.
+\end{lemma}
+\begin{proof}
+	\Yang{Demaily, Theorem 4.29, Chapter II.}
+\end{proof}
 \begin{definition}\label{def:analytic-sets-as-locally-ringed-space}
 	Let \(A \subset \Omega\) be a analytic subset of an open set \(\Omega \subset \bbC^n\).
 	We endow $A$ a structure of locally ringed space by setting its structure sheaf as $\scrO_A \coloneqq ( \scrO_\Omega / \scrI_A )|_{A}$.

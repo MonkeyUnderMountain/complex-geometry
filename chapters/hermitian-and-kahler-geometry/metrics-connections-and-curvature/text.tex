@@ -1,4 +1,4 @@
-% !TeX root = metrics-curvature-and-connections.tex
+% !TeX root = metrics-connections-and-curvature.tex
 
 
 In this section, all vector bundles and line bundles are geometric vector bundles unless emphasis.
@@ -9,7 +9,7 @@ We will try to work on the settings of complex analytic space.
 
 \subsection{The first properties}
 
-Let \(X\) be a complex analytic space and \(E \to X\) a (geometric) smooth complex vector bundle.
+Let \(X\) be a complex analytic varieties and \(E \to X\) a locally free sheaf.
 
 \begin{definition}\label{def:hermitian-metric-on-holomorphic-vector-bundles}
 	A \emph{smooth hermitian metric} (resp. \emph{continous hermitian metric}) on \(E\) is a smoothly (resp. continuously) varying family of hermitian inner products \(\langle \cdot, \cdot \rangle_x\) on the fibers \(E_x\) for each \(x \in X\),
@@ -18,7 +18,7 @@ Let \(X\) be a complex analytic space and \(E \to X\) a (geometric) smooth compl
 	is a hermitian inner product for each \(x\), and for any local smooth (resp. continuous) sections \(s,t\) of \(E\), the function
 	\[x \mapsto \langle s(x), t(x) \rangle_x\]
 	is smooth (resp. continuous) on \(X\).
-	A smooth complex vector bundle equipped with a smooth hermitian metric is called a \emph{hermitian vector bundle}.
+	A complex vector bundle equipped with a hermitian metric is called a \emph{hermitian vector bundle}.
 \end{definition}
 
 \begin{definition}\label{def:hermitian-metric-on-tangent-bundle}
@@ -26,11 +26,10 @@ Let \(X\) be a complex analytic space and \(E \to X\) a (geometric) smooth compl
 \end{definition}
 
 \begin{remark}\label{rmk:Riemannian_metric_induced_by_hermitian_metric}
-	Let \(h\) be a hermitian metric on a complex manifold \(X\).
+	Let \(h\) be a smooth hermitian metric on a complex manifold \(X\).
 	Then \(h\) induces a Riemannian metric \(g\) on the underlying real manifold of \(X\) by
 	\[g(u,v) = \Real(h(u,v))\]
 	for real tangent vectors \(u,v \in T_x X\).
-	% \Yang{To be revised.}
 \end{remark}
 
 \begin{example}\label{eg:Fubini-Study_metric_on_P^n}
@@ -122,6 +121,9 @@ Let \(X\) be a complex analytic space and \(E \to X\) a (geometric) smooth compl
 	\Yang{to be continued}
 \end{example}
 
+
+\Yang{the following need to revise to the version of analytic varieties}
+
 \begin{definition}\label{def:connection_on_holomorphic_vector_bundles}
 	Let \(X\) be a complex manifold and \(E \to X\) a holomorphic vector bundle.
 	A \emph{connection} on \(E\) is a \(\bbC\)-linear map between the sheaves of smooth sections
@@ -181,41 +183,50 @@ When \(E = TX\) is the tangent bundle, the curvature \(F_\nabla\) is a \((3,1)\)
 
 \subsection{For line bundles}
 
-Let \(X\) be a complex manifold and \(L \to X\) a holomorphic line bundle.
+For a smooth metric on a line bundle $\calL$, the curvature \Yang{} gives a $(1,1)$-form.
+And this form will exactly represent the line bundle in $H^{1,1}$.
+
+Let \(X\) be a complex analytic variety and $\calL$ a holomorphic line bundle on $X$.
+
+\begin{proposition}\label{prop:correspondence_between_hermitian_metric_and_forms}
+	There is a one-to-one correspondence between smooth hermitian metrics on \(L\) and real \((1,1)\)-forms representing the first Chern class \(c_1(L) \in H^{1,1}(X, \bbR)\).
+	More precisely, given a smooth hermitian metric \(h\) on \(L\), there exists a unique real \((1,1)\)-form \(\omega_h\) such that for any local holomorphic non-vanishing section \(s\) of \(L\),
+	\[\omega_h = -\frac{i}{2\pi} \partial \overline{\partial} \log h(s,s), \qquad [\omega_h] = c_1(L) \in H^{1,1}(X,\bbR).\]
+	Conversely, given a real \((1,1)\)-form \(\omega\) representing \(c_1(L)\), there exists a hermitian metric \(h\) unique up to \Yang{} on \(L\) such that \(\omega = \omega_h\).
+	\Yang{To be checked.}
+\end{proposition}
+
 
 \begin{proposition}\label{prop:hermitian_metric_different_by_a_smooth_function_on_a_fixed_line_bundle}
-	Let \(h_1,h_2\) be two hermitian metrics on \(L\).
-	Then there exists a unique smooth function \(\varphi: X \to \bbR\) such that
+	Let \(h_1,h_2\) be two smooth (resp. continuous) hermitian metrics on $\calL$.
+	Then there exists a unique smooth (resp. continuous) function \(\varphi: X \to \bbR\) such that
 	\[h_2(s,t) = \exp(\varphi) \cdot h_1(s,t)\]
-	for all local smooth sections \(s,t\) of \(L\).
+	for all local smooth (resp. continuous) sections \(s,t\) of \(L\).
 \end{proposition}
 \begin{proof}
 	\Yang{to be added.}
 \end{proof}
 
-\begin{proposition}\label{prop:correspondence_between_hermitian_metric_and_forms}
-	There is a one-to-one correspondence between hermitian metrics on \(L\) and real \((1,1)\)-forms representing the first Chern class \(c_1(L) \in H^{1,1}(X, \bbR)\).
-	More precisely, given a hermitian metric \(h\) on \(L\), there exists a unique real \((1,1)\)-form \(\omega_h\) such that for any local holomorphic non-vanishing section \(s\) of \(L\),
-	\[\omega_h = -\frac{i}{2\pi} \partial \overline{\partial} \log h(s,s), \qquad [\omega_h] = c_1(L) \in H^{1,1}(X,\bbR).\]
-	Conversely, given a real \((1,1)\)-form \(\omega\) representing \(c_1(L)\), there exists a hermitian metric \(h\) on \(L\) such that \(\omega = \omega_h\).
-	\Yang{To be checked.}
-\end{proposition}
-
-\Yang{Green functions?}
-
 \begin{definition}\label{def:green-functions-for-a-divisor}
-	Let $D$ be a divisor on $X$.
-	A \emph{green function} of $D$,
-
-	\Yang{to be continued}
+	Let $D = \{(U_i,f_i)\}$ be a Caritier divisor on $X$.
+	A \emph{green function} of $D$ is a (real-valued) function $g \in \scrO_{X}^{\cnt,\bbR}(X \setminus \Supp D)$ such that $g|_{U_i} + \log |f_i|$ can be extended to a continous function on $U_i$.
 \end{definition}
 
-\begin{proposition}
-	There is an equation of currents:
-	\[ \upd \upd^c g = \omega_h - \delta_D. \]
+\begin{example}
+	Let $\bbP$
+
 	\Yang{to be continued.}
+\end{example}
+
+\begin{proposition}
+	\Yang{given a hermitian metric and a section is like to given a green function}
 \end{proposition}
 
+\begin{theorem}[Lelong-Poincar\'e equation]
+	Let
+	\[ \upd \upd^c g = \frac{\im}{\pi} \partial \overline{\partial} g = \omega_h - \delta_D. \]
+	\Yang{}
+\end{theorem}
 
 
 
@@ -225,11 +236,14 @@ Let \(X\) be a complex manifold and \(L \to X\) a holomorphic line bundle.
 
 
 
-\subsection{Chern-Weil Theory}
+
+
+\subsection{Chern-Weil theory}
+
 
 
 \Yang{now we extend these theory to vector bundle}
-
+Then it becomes the theory so-called Chern-Weil theory.
 
 
 
@@ -247,9 +261,3 @@ Let \(X\) be a complex manifold and \(L \to X\) a holomorphic line bundle.
 \end{proof}
 
 
-% \subsection{the K\"ahler condition}
-
-%     \begin{definition}\label{def:Kahler_manifold}
-%         A \emph{K\"ahler manifold} is a complex manifold \(X\) equipped with a hermitian metric \(h\) whose associated (1,1)-form \(\omega\) is closed, i.e., \(d\omega = 0\).
-%         \Yang{To be checked.}
-%     \end{definition}

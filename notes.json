@@ -47,22 +47,11 @@
             }
           },
           {
-            "id": "complex-manifolds-and-analytic-spaces",
-            "title": "Complex manifolds and analytic spaces",
+            "id": "complex-manifolds-and-analytic-varieties",
+            "title": "Complex manifolds and analytic varieties",
             "order": 3,
-            "tex": "chapters/the-first-properties/complex-manifolds-and-analytic-spaces/complex-manifolds-and-analytic-spaces.tex",
-            "url": "pdf/chapters/the-first-properties/complex-manifolds-and-analytic-spaces/complex-manifolds-and-analytic-spaces.pdf",
-            "status": {
-              "published": 0,
-              "finished": 0
-            }
-          },
-          {
-            "id": "meromorphic-functions-and-siegel-theorem-on-function-fields",
-            "title": "Meromorphic functions",
-            "order": 4,
-            "tex": "chapters/the-first-properties/meromorphic-functions-and-siegel-theorem-on-function-fields/meromorphic-functions-and-siegel-theorem-on-function-fields.tex",
-            "url": "pdf/chapters/the-first-properties/meromorphic-functions-and-siegel-theorem-on-function-fields/meromorphic-functions-and-siegel-theorem-on-function-fields.pdf",
+            "tex": "chapters/the-first-properties/complex-manifolds-and-analytic-varieties/complex-manifolds-and-analytic-varieties.tex",
+            "url": "pdf/chapters/the-first-properties/complex-manifolds-and-analytic-varieties/complex-manifolds-and-analytic-varieties.pdf",
             "status": {
               "published": 0,
               "finished": 0
@@ -71,9 +60,20 @@
           {
             "id": "bundles-and-sheaves",
             "title": "Bundles and sheaves",
-            "order": 5,
+            "order": 4,
             "tex": "chapters/the-first-properties/bundles-and-sheaves/bundles-and-sheaves.tex",
             "url": "pdf/chapters/the-first-properties/bundles-and-sheaves/bundles-and-sheaves.pdf",
+            "status": {
+              "published": 0,
+              "finished": 0
+            }
+          },
+          {
+            "id": "from-differential-to-algebraic-geometry",
+            "title": "From differential to algebraic geometry",
+            "order": 5,
+            "tex": "chapters/the-first-properties/from-differential-to-algebraic-geometry/from-differential-to-algebraic-geometry.tex",
+            "url": "pdf/chapters/the-first-properties/from-differential-to-algebraic-geometry/from-differential-to-algebraic-geometry.pdf",
             "status": {
               "published": 0,
               "finished": 0
@@ -93,9 +93,20 @@
         },
         "sections": [
           {
-            "id": "forms-and-currents",
-            "title": "Forms and Currents",
+            "id": "divisors-and-cycles",
+            "title": "Divisors and cycles",
             "order": 1,
+            "tex": "chapters/cohomology-and-intersection/divisors-and-cycles/divisors-and-cycles.tex",
+            "url": "pdf/chapters/cohomology-and-intersection/divisors-and-cycles/divisors-and-cycles.pdf",
+            "status": {
+              "published": 0,
+              "finished": 0
+            }
+          },
+          {
+            "id": "forms-and-currents",
+            "title": "Forms and currents",
+            "order": 2,
             "tex": "chapters/cohomology-and-intersection/forms-and-currents/forms-and-currents.tex",
             "url": "pdf/chapters/cohomology-and-intersection/forms-and-currents/forms-and-currents.pdf",
             "status": {
@@ -104,9 +115,20 @@
             }
           },
           {
+            "id": "notions-of-positivity",
+            "title": "Notions of positivity",
+            "order": 3,
+            "tex": "chapters/cohomology-and-intersection/notions-of-positivity/notions-of-positivity.tex",
+            "url": "pdf/chapters/cohomology-and-intersection/notions-of-positivity/notions-of-positivity.pdf",
+            "status": {
+              "published": 0,
+              "finished": 0
+            }
+          },
+          {
             "id": "cohomology-theories",
             "title": "Cohomology theories",
-            "order": 2,
+            "order": 4,
             "tex": "chapters/cohomology-and-intersection/cohomology-theories/cohomology-theories.tex",
             "url": "pdf/chapters/cohomology-and-intersection/cohomology-theories/cohomology-theories.pdf",
             "status": {
@@ -128,11 +150,11 @@
         },
         "sections": [
           {
-            "id": "metrics-curvature-and-connections",
-            "title": "Metrics, curvature and connections",
+            "id": "metrics-connections-and-curvature",
+            "title": "Metrics, connections and curvature",
             "order": 1,
-            "tex": "chapters/hermitian-and-kahler-geometry/metrics-curvature-and-connections/metrics-curvature-and-connections.tex",
-            "url": "pdf/chapters/hermitian-and-kahler-geometry/metrics-curvature-and-connections/metrics-curvature-and-connections.pdf",
+            "tex": "chapters/hermitian-and-kahler-geometry/metrics-connections-and-curvature/metrics-connections-and-curvature.tex",
+            "url": "pdf/chapters/hermitian-and-kahler-geometry/metrics-connections-and-curvature/metrics-connections-and-curvature.pdf",
             "status": {
               "published": 0,
               "finished": 0
