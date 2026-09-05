@@ -1,50 +1,87 @@
 % !TeX root = local-models.tex
 
 On this section, we survey the local models in complex geometry.
-They should be viewed as an analogue of affine schemes in algebraic geometry.
+They should be viewed as an analogue of affine varieties in algebraic geometry.
 For language of sheaves and locally ringed space, I refer to my other notes \Yang{}.
 
-% \subsection{Sheaf of holomorphic functions}
 \subsection{Regular local models}
 
-\begin{definition}\label{def:sheaf-of-holomorphic-functions}
-	Let \(\Omega \subset \bbC^n\) be an open set.
-	The \emph{sheaf of holomorphic functions} on \(\Omega\), denoted by \(\scrO_\Omega\),
-	is the assignment that to each open subset \(U \subset \Omega\) assigns the ring \(\scrO_\Omega(U)\) of all holomorphic functions on \(U\),
+We begin from the regular local models, more explictly, the unit open ball $B$ in $\bbC^n$.
+They are local models of complex manifolds.
+
+\begin{definition}\label{def:sheaf-of-holomorphic-functions-on-unit-open-ball}
+	Let \(B \subset \bbC^n\) be the unit open ball.
+	The \emph{sheaf of holomorphic functions} on \(B\), denoted by \(\scrO_B\),
+	is the assignment that to each open subset \(U \subset B\) assigns the ring \(\scrO_B(U)\) of all holomorphic functions $f:U \to \bbC$ on \(U\),
 	and set the restriction as the usual restriction of functions.
 \end{definition}
 
+
+In general, \(\scrO_B(U)\) is not a noetherian ring for an open set \(U \subset B\).
+
+\begin{example}\label{eg:ring-of-holomorphic-functions-is-not-noetherian}
+	Let $B \subset \bbC$ be the unit open ball.
+  Set $I_k = \{f \in \scrO_B(B) | f(1/2) = \cdots = f(1/k) = 0\}$ be ideals of $\scrO_B(B)$.
+  Then $f_k = (z-1/2)\cdots (z-1/k) \in I_k \setminus I_{k+1}$ and hence we get a strictly descending chain $I_2 \supseteq I_3 \supseteq \cdots$ of ideals of $\scrO_B(B)$.
+\end{example}
+
 A fundamental property of the sheaf of holomorphic functions is its coherence.
+By \cref{eg:ring-of-holomorphic-functions-is-not-noetherian}, the coherence is surprising.
 
 \begin{theorem}[Oka's Coherence Theorem]\label{thm:Oka-coherence-theorem-for-open-subsets}
-	The sheaf of holomorphic functions \(\calO_\Omega\) on an open set \(\Omega \subset \bbC^n\) is a coherent sheaf.
+	The sheaf of holomorphic functions \(\calO_B\) on the open unit ball $B$ is a coherent sheaf.
 \end{theorem}
 \begin{proof}
 	\Yang{}
 \end{proof}
 
-In general, \(\scrO_\Omega(U)\) is not a Noetherian ring for an open set \(U \subset \Omega\).
-However, its stalks \(\scrO_{\Omega, p}\) at points \(p \in \Omega\) are Noetherian rings.
-
-\begin{example}\label{eg:ring-of-holomorphic-functions-is-not-Noetherian}
-	Let $B \subset \bbC^n$ be the unit open ball.
-	\Yang{To be continued...}
-\end{example}
+On each stalk, the sheaf behave well.
 
 \begin{proposition}\label{prop:stalk-of-sheaf-of-holomorphic-functions-is-local-noetherian-regular}
-	For any point \(p \in \Omega\), the stalk \(\calO_{\Omega, p}\) of the sheaf of holomorphic functions at \(p\) is a Noetherian ring.
+	For any point \(p \in B\), we have 
+  \[ \scrO_{B,p} \cong \left\{ f = \sum_{I \in \bbZ_{\geq 0}^n} a_I x^I \in \bbC[[x_1,\cdots, x_n]] \;\middle|\; \limsup_{|I| \to \infty} |a_I|^{1/|I|} < +\infty \right\}. \]
+  In particular, $\scrO_{B,p}$ is noetherian.
+  the stalk \(\calO_{B, p}\) of the sheaf of holomorphic functions at \(p\) is a noetherian ring.
 \end{proposition}
 \begin{proof}
 	\Yang{to be completed.}
 \end{proof}
 
-\begin{remark}\label{rmk:topological_properties_stalk_of_sheaf_of_holomorphic_functions}
-	The sheaf of holomorphic functions \(\calO_\Omega\) is a sheaf of topological rings, where the topology on \(\calO_\Omega(U)\) for an open set \(U \subset \Omega\) is given by the compact-open topology.
-	\Yang{To be continued...}
-\end{remark}
+\begin{definition}\label{def:analytic-subset}
+	A subset \(A \subset \Omega\) of an open set \(\Omega \subset \bbC^n\) is called an \emph{analytic subset} if for every point \(p \in \Omega\), there exists a neighborhood \(U\) of \(p\) and finitely many holomorphic functions \(f_1, \ldots, f_k \in \scrO_\Omega(U)\) such that
+	\[ A \cap U = \{ z \in U : f_1(z) = f_2(z) = \cdots = f_k(z) = 0 \}. \]
+\end{definition}
+
+\begin{lemma}
+	Let \(A \subset \Omega\) be a analytic subset of an open set \(\Omega \subset \bbC^n\).
+	Define a sheaf of ideas $\scrI_A$ of $\scrO_\Omega$ by $\scrI_A(U) \coloneqq \{f \in \scrO_\Omega(U)\; |\; f|_A = 0 \}$.
+	Then $\scrI_A$ is a coherent sheaf.
+\end{lemma}
+\begin{proof}
+	\Yang{Demaily, Theorem 4.29, Chapter II.}
+\end{proof}
+
+\begin{definition}\label{def:local-analytic-sets-as-locally-ringed-space}
+	Let $B$ be an open unit ball and \(A \subset B\) be a analytic subset of an open set \(\Omega \subset \bbC^n\).
+	We endow $A$ a structure of locally ringed space by setting its structure sheaf as $\scrO_A \coloneqq ( \scrO_\Omega / \scrI_A )|_{A}$.
+	A locally ringed space isomorphic to such a space is called a \emph{analytic sets}.
+\end{definition}
+
+\begin{definition}
+  A \emph{local model of complex analytic spaces} 
+\end{definition}
 
 
-The following proposition may seems a little strange.
+\Yang{}
+
+% \begin{remark}\label{rmk:topological_properties_stalk_of_sheaf_of_holomorphic_functions}
+% 	The sheaf of holomorphic functions \(\calO_B\) is a sheaf of topological rings, where the topology on \(\calO_\Omega(U)\) for an open set \(U \subset \Omega\) is given by the compact-open topology.
+% 	\Yang{To be continued...}
+% \end{remark}
+
+
+In algebraic geometry, any open subset of an affine varieties can be covered by principal open subsets.
+The following proposition is a trivial analogue for complex manifolds.
 But \Yang{}
 
 \begin{proposition}
@@ -60,19 +97,6 @@ But \Yang{}
 % \subsection{Analytic sets}
 \subsection{Analytic local models}
 
-\begin{definition}\label{def:analytic-subset}
-	A subset \(A \subset \Omega\) of an open set \(\Omega \subset \bbC^n\) is called an \emph{analytic subset} if for every point \(p \in \Omega\), there exists a neighborhood \(U\) of \(p\) and finitely many holomorphic functions \(f_1, \ldots, f_k \in \scrO_\Omega(U)\) such that
-	\[ A \cap U = \{ z \in U : f_1(z) = f_2(z) = \cdots = f_k(z) = 0 \}. \]
-\end{definition}
-
-\begin{lemma}
-	Let \(A \subset \Omega\) be a analytic subset of an open set \(\Omega \subset \bbC^n\).
-	Define a sheaf of ideas $\scrI_A$ of $\scrO_\Omega$ by $\scrI_A(U) \coloneqq \{f \in \scrO_\Omega(U)\; |\; f|_A = 0 \}$.
-	Then $\scrI_A$ is a coherent sheaf.
-\end{lemma}
-\begin{proof}
-	\Yang{Demaily, Theorem 4.29, Chapter II.}
-\end{proof}
 \begin{definition}\label{def:analytic-sets-as-locally-ringed-space}
 	Let \(A \subset \Omega\) be a analytic subset of an open set \(\Omega \subset \bbC^n\).
 	We endow $A$ a structure of locally ringed space by setting its structure sheaf as $\scrO_A \coloneqq ( \scrO_\Omega / \scrI_A )|_{A}$.
