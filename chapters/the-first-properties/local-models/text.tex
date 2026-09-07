@@ -34,7 +34,7 @@ By \cref{eg:ring-of-holomorphic-functions-is-not-noetherian}, the coherence is s
 	\Yang{}
 \end{proof}
 
-On each stalk, the sheaf behave well.
+On each stalk, the sheaf behaves well.
 
 \begin{proposition}\label{prop:stalk-of-sheaf-of-holomorphic-functions-is-local-noetherian-regular}
 	For any point \(p \in B\), we have
@@ -100,6 +100,19 @@ The structure sheaf $\scrO_Z$ is a sheaf of functions, i.e., there is a natural 
 	\Yang{}
 \end{definition}
 
+\begin{lemma}
+	Let $U$ be a local model of complex analytic spaces.
+	The by setting analytic subsets as closed subsets, we get a topology on $U$ which is coraser than the analytic topology on $U$.
+	This topology is called the \emph{Zariski topology} on $U$.
+\end{lemma}
+\begin{proof}
+	\Yang{to be continued}
+\end{proof}
+
+\begin{definition}
+	An \emph{analytically closed immersion} from a locally ringed space with structure sheaf of functions to a local model of complex analytic spaces is a \Yang{}
+\end{definition}
+
 \begin{definition}\label{def:regular-and-singular-points-on-local-models}
 	Let $U$ be a local model of complex analytic spaces.
 	A point $p \in U$ is called \emph{regular} if the local ring $\scrO_{U,p}$ is a regular ring;
@@ -118,8 +131,13 @@ The structure sheaf $\scrO_Z$ is a sheaf of functions, i.e., there is a natural 
 In algebraic geometry, any open subset of an affine varieties can be covered by principal open subsets.
 The following proposition is an analogue for complex analytic spaces.
 
+
 \begin{proposition}
 	Let $U$ be a local model of complex analytic spaces.
+	\begin{enumerate}
+		\item for any open set of
+		\item for any analytic subset
+	\end{enumerate}
 	The for any open subset $V \subset U$, $(V, \scrO_U|_V \subset \scrC_{V,\bbC}^0)$ is covered by local models of complex analytic spaces.
 	Moreover, if $U$ is regular at every point in $V$, then $(V, \scrO_U|_V \subset \scrC_{V,\bbC}^0)$ can be covered by regular local models.
 \end{proposition}
@@ -127,7 +145,21 @@ The following proposition is an analogue for complex analytic spaces.
 	\Yang{}
 \end{proof}
 
-\Yang{}
+\begin{remark}
+	Note that by \Yang{}, the Zariski topology on Z is ....
+	But for an open subset, the Zariski topology is finer / coraser that original subspace
+	\Yang{}
+	for example, $\bbC^*\setminus \{1/n\}$ is not analytically Zariski open in $\bbC$.
+\end{remark}
+
+\begin{proposition}
+	Let $U$ be a local model of complex analytic spaces.
+	\begin{enumerate}
+		\item let $\scrF$ be a coherent sheaf on $U$, then $\Supp \scrF$ is an analytic subsets of $U$;
+		\item $U_\sing$ is an analytic subsets of $U$.
+	\end{enumerate}
+	\Yang{}
+\end{proposition}
 
 % \begin{remark}\label{rmk:topological_properties_stalk_of_sheaf_of_holomorphic_functions}
 % 	The sheaf of holomorphic functions \(\calO_B\) is a sheaf of topological rings, where the topology on \(\calO_\Omega(U)\) for an open set \(U \subset \Omega\) is given by the compact-open topology.
@@ -136,95 +168,40 @@ The following proposition is an analogue for complex analytic spaces.
 
 
 
-
-
-% % \subsection{Analytic sets}
-% \subsection{Analytic local models}
-%
-% \begin{definition}\label{def:analytic-sets-as-locally-ringed-space}
-% 	Let \(A \subset \Omega\) be a analytic subset of an open set \(\Omega \subset \bbC^n\).
-% 	We endow $A$ a structure of locally ringed space by setting its structure sheaf as $\scrO_A \coloneqq ( \scrO_\Omega / \scrI_A )|_{A}$.
-% 	A locally ringed space isomorphic to such a space is called a \emph{analytic sets}.
-%
-% 	We can extend the definition of analytic subsets to an analytic sets.
-% 	Namely, for an analytic sets $A$, a subset $B \subset A$ is called \emph{analytic subset} if for every point \(p \in A\), there exists a neighborhood \(U\) of \(p\) and finitely many holomorphic functions \(f_1, \ldots, f_k \in \scrO_A(U)\) such that
-% 	\[ B \cap U = \{ z \in U : f_1(z) = f_2(z) = \cdots = f_k(z) = 0 \}. \]
-% \end{definition}
-%
-%
-%
-% The anayltic sets may have singularties.
-%
-% \begin{definition}\label{def:regular-and-singular-points-of-analytic-sets}
-% 	Let $A$ be an analytic sets.
-% 	A point $p \in A$ is called \emph{regular} if the local ring $\scrO_{A,p}$ is a regular ring;
-% 	otherwise, it is called \emph{singular}.
-% 	We say that $A$ is \emph{regular} if it is regular at every points.
-% \end{definition}
-%
-%
-% \begin{proposition}
-% 	Let $A$ be an analytic sets.
-% 	A point $p \in A$ is regular iff there exits an open neighborhood $U$ of $p$ such that $U$ is a complex manifold.
-% \end{proposition}
-%
-% \Yang{Zariski topology}
-%
-% \Yang{irreducible}
-%
-% \Yang{dimensions}
-%
-
-
 \subsection{Local differential calculus}
 
 Above is almost the same as algebraic geometry.
 On this subsection, we will see somethings only belong to complex geometry.
 Namely, we can define smooth functions and differential forms and do calculus.
 
-\Yang{begin of regular local model}
-
-\begin{definition}
-	Let $(B,\scrO_B \subset \scrC_{B,\bbC}^0)$ be a regular local model of complex analytic spaces.
-	A function $f \in \scrC_{B,\bbC}^0(B)$ is called \emph{smooth} if
-	Set $\scrC_{B,\bbC}^\infty$ be the sheaf of smooth function on $B$.
-	\Yang{}
-\end{definition}
-
-\Yang{end of regular local model and begin general local model.}
+On an open ball $B$, we can define the smooth function. \Yang{}
 
 \begin{lemma}
-	Let $f$ be a smooth function on a ..., then it can be extended to the ball.
+	Let $(Z,\scrO_Z \subset \scrC_{Z,\bbC}^0)$ be a local model of complex anayltic spaces.
+	Let $Z \subset B_0$ be an analytically closed immersion into an open ball.
+	Let $f_0$ be a smooth function on $B_0$ and $f = f_0|_Z \in \scrC^0_{Z,\bbC}$.
+	Then for any analytically closed immersion $Z \injmap B$ into an open ball, there exists a smooth function $f_B$ on $B$ such that $f_B|_Z = f \in \scrC_{Z,\bbC}^0(Z)$.
 \end{lemma}
+\begin{proof}
+	I refer to \cite[Section 3.2.4]{Barlet-Magnusson-2019-ComplexAnalyticCycles}.
+	\Yang{}
+\end{proof}
 
 \begin{definition}
-	Let $A$ be a local model of complex analytic space.
-	A function $f \in \scrC^0(A,\bbC)$ is called \emph{smooth} if there is
+	Let $U$ be a local model of complex analytic space.
+	A function $f \in \scrC^0_{U,\bbC}(U)$ is called \emph{smooth} if there is
 	\Yang{}
 \end{definition}
 
-
-\Yang{the following need to revised.}
-
-I refer to \cite[Section 3.2.4]{Barlet-Magnusson-2019-ComplexAnalyticCycles}.
-
-It is worth noting that we can view a regular local model as a real manifold canonically.
-
-The following says that these structures are intrinct.
-
-\begin{proposition}
-	Let $B$ be a regular local model of complex analytic space and $(B_i, \scrO_B)$ be a covering of $B$ by regular local model.
-	Then the underlying real manifold structures are naturally isomorphic.\Yang{}
-\end{proposition}
-\begin{proof}
-	\Yang{}
-\end{proof}
+\begin{remark}
+	definition of $\scrC_{U,\bbC}^p$ for any $p$.
+\end{remark}
 
 when given a local model, we have fixed the following sheaves
 \[
 	\begin{tikzcd}
-		\underline{\bbC} &\scrO_B & \scrO_B^{\sm,\bbC} & \scrO_B^{\cnt,\bbC} \\
-		\underline{\bbR} && \scrO_B^{\sm,\bbR} & \scrO_B^{\cnt,\bbR}
+		\underline{\bbC} &\scrO_U & \scrC_{U,\bbC}^\infty & \scrC_{U,\bbC}^0 \\
+		\underline{\bbR} && \scrC_{U,\bbR}^\infty & \scrC_{U,\bbR}^0
 		\arrow[from=1-1, to=1-2, hook]
 		\arrow[from=1-2, to=1-3, hook]
 		\arrow[from=1-3, to=1-4, hook]
@@ -236,71 +213,92 @@ when given a local model, we have fixed the following sheaves
 	\end{tikzcd}
 \]
 
-% Let $B \subset \bbC^n$ be the open unit ball.
-% We have the tangent bundle $TB$ (as real manifolds or smooth vector bundle).
-% Since we have global coordinates, the bundle is trivial.
-% That is, $TB \cong B \times \bbR^{2n}$, and $\bbR^{2n}$ has a standard basis $\partial_{x_i}, \partial_{y_i}$ given by the coordinate $z_i = x_i + \im y_i$ of $\bbC^n$.
-% Consider the complexification $TB^\bbC$ of $TB$, that is,
-% \[ TB^\bbC \coloneqq B \times (\bbR^{2n} \otimes_\bbR \bbC). \]
-% Using the notation \Yang{}
-% \[ \partial_i, \quad \overline{\partial}_i \]
-% we have a decomposition
-%
-%
-% Recall that $\underline{R}$ with $R$ being a ring is the locally constant sheaf with values in $R$.
-%
-% \begin{proposition}
-% 	There is a canonical decomposition
-% 	\[ (\Omega_B \otimes_{\scrO_B} \scrO_B^{\sm,\bbC} ) \otimes_{\underline{\bbR}} \underline{\bbC} \cong \Omega_B \otimes_{\scrO_B} \scrO_B^\sm \oplus \overline{\Omega_B \otimes_{\scrO_B} \scrO_B^\sm}.  \]
-%
-% 	\Yang{}
-% \end{proposition}
-%
-% \begin{definition}
-% 	Let $B$ be a regular local model of complex analytic spaces.
-% 	The \emph{sheaf of smooth $(p,q)$-forms} is defined as
-% 	\[ \scrA^{1,0}_B \coloneqq \Omega_B \otimes_{\scrO_B} \scrO_B^{\sm,\bbC}, \quad \scrA^{0,1}_B \coloneqq \overline{\scrA^{1,0}_B}, \quad \scrA^{p,q}_B \coloneqq \bigwedge^p \scrA^{1,0}_B \ten \bigwedge^q \scrA^{0,1}_B. \]
-% \end{definition}
-%
-% \begin{proposition}
-% 	The sheaf $\scrA_{B}^{p,q}$ is a $\scrO_B^{\sm,\bbC}$-module, and hence $\scrO_B$-module and $\scrO_B^{\sm,\bbR}$-module.
-% \end{proposition}
-%
-% On a general local model $A$, we have the sheaves of rings:
-% \[
-% 	\begin{tikzcd}
-% 		\underline{\bbC} &\scrO_B &  & \scrO_B^{\cnt,\bbC} \\
-% 		\underline{\bbR} &&  & \scrO_B^{\cnt,\bbR}
-% 		\arrow[from=1-1, to=1-2, hook]
-% 		\arrow[from=1-2, to=1-4, hook]
-% 		\arrow[from=2-1, to=2-4, hook]
-% 		\arrow[from=2-1, to=1-1, hook]
-% 		\arrow[from=2-4, to=1-4, hook]
-% 	\end{tikzcd}
-% \]
-% Now let us define the middle sheaves of ``smooth'' functions even $A$ being possibly singular.
-% \begin{definition}\label{def:smooth-functions-on-local-model-of-analytic-spaces}
-% 	Let $A$ be a local model of complex analytic spaces.
-% 	A function in $f \in \scrO_A^{\cnt,\bbC}(A)$ is called \emph{smooth} if
-% \end{definition}
-%
-%
-% Except the structure sheaf, there are some other sheaves are very important in complex geometry, called the sheaf of smooth $(p,q)$-forms.
-% We begin from regular local models.
-%
-%
-%
-%
-% \begin{definition}
-% 	Let $A$ be a local model of complex analytic spaces.
-% 	The \emph{sheaf of smooth $(p,q)$-forms} is defined as
-% 	\[ \scrA^{1,0}_B \coloneqq \Omega_B \otimes_{\scrO_B} \scrO_B^{\sm,\bbC}, \quad \scrA^{0,1}_B \coloneqq \overline{\scrA^{1,0}_B}, \quad \scrA^{p,q}_B \coloneqq \bigwedge^p \scrA^{1,0}_B \ten \bigwedge^q \scrA^{0,1}_B. \]
-% 	\Yang{note that $A$ is not a real manifold. hence we need to re-define.}
-% \end{definition}
-%
-%
-%
-%
+\begin{remark}
+	When from a view point of analytic geometry over a general valuation field $\kk$, we can only get sheaves
+	\[
+		\begin{tikzcd}
+			\underline{\kk} \arrow[r,hook] &\scrO_U\arrow[rr,hook] &&  \scrC_{U,\kk}^0
+		\end{tikzcd}
+	\]
+	On a real manifolds, we can only get
+	\[
+		\begin{tikzcd}
+			\underline{\bbR} \arrow[rr,hook] && \scrC_{U,\bbR}^\infty \arrow[r,hook] &  \scrC_{U,\kk}^0.
+		\end{tikzcd}
+	\]
+	this may a reason why complex geometry has many surprising theory
+	\Yang{}
+\end{remark}
+
+Now let us discuss the differential.
+First we begin from the nonsingular case.
+
+\begin{construction}
+	Let $B$ be a $n$-dimensional regular local model of complex analytic spaces.
+	By definition, $(B,\scrC_{B,\bbR}^\infty \subset \scrC_{B,\bbR}^0)$ carries a natural structure of real manifolds.
+	Hence we can consider its cotangent bundle $T^*B$.
+	Its smooth sections forms a $\scrC_{B,\bbR}^\infty$-module $\scrF_{\sm,\bbR}$, and there is a natural $\underline{\bbR}$-linear map $\upd_{\sm,\bbR}$ sending smooth functions to smooth sections in $T^*B$.
+	As $\scrC_{B,\bbR}^\infty$-module, it is locally free of rank $2n$.
+
+	Above is totally of real coefficients.
+	On the other hands, we can also consider holomorphic sections in $T^*B$.
+	This sheaf $\scrF_{\hol,\bbC}$ is an $\scrO_B$-module.
+	And we also have a natural $\underline{\bbC}$-linear map $\upd_{\hol,\bbC}$ sending holomorphic functions to holomorphic sections by definition of holomorphicity.
+	As $\scrO_{B}$-module, $\scrF_{\hol,\bbC}$ is locally free of rank $n$.
+
+	We extend both of them to $\scrC_{B,\bbC}^\infty$.
+	Set
+	\[ \scrA_B^1 \coloneqq \scrF_{\sm,\bbR} \otimes_{\scrC^{\infty}_{B,\bbR}} \scrC^{\infty}_{B,\bbC}, \qquad \scrA_B^{1,0} \coloneqq \scrF_{\hol,\bbC} \otimes_{\scrO_{B}} \scrC^{\infty}_{B,\bbC}. \]
+	Since any holomorphic function is naturally smooth as map to $\bbC$, we have an inclusion of sheaves $\scrA_{B}^{1,0} \subset \scrA_B^1$.
+	The differential map $\upd_{\sm,\bbR}$ extends to a $\scrC_{B,\bbC}^\infty$-map easily since $\scrA_B^1 = \scrF_{\sm,\bbR} \oplus \scrF_{\sm,\bbR} \cdot \im$ as $\scrC^{\infty}_{B,\bbR}$-modules (this is since we always fix such a $\bbR$-basis of $\bbC$).
+	Explicitly, we have a $\underline{\bbC}$-linear map
+	\[ \upd_{\sm,\bbC}: \scrC_{B,\bbC}^\infty \to \scrA^1, \qquad \upd_{\sm,\bbC}(u+\im v) = \upd_{\sm,\bbR} u + \im \upd_{\sm,\bbR} v, \quad u,v \in \scrC_{B,\bbR}^\infty(U). \]
+	For $f \in \scrO_B(U) \subset \scrC_{B,\bbC}^\infty(U)$, we have $\upd_{\hol,\bbC}f = \upd_{\sm,\bbC}f$ by definition.
+
+	A subtle thing is that there are two $\underline{\bbC}$-module sturcture on $\scrA_B^1$.
+	One is given by the smooth $\bbR$-linear map $J: T^*B \to T^*B, v \mapsto \im v$ (note that $T^*B$ is naturally a smooth $\bbC$-vector bundle).
+	This is also called \emph{almost complex structure}; see \Yang{}.
+	The other comes from the tensor by $\scrC^{\infty}_{B,\bbC}$, which is clearly a $\underline{\bbC}$-algebra.
+	We use ths latter as the $\underline{\bbC}$-module sturcture on $\scrA_B^1$ (so that $\upd_{\sm,\bbC}$ is $\underline{\bbC}$-linear).
+	Hence the first $J$ will be a $\underline{\bbC}$-linear map comes from a $\underline{\bbR}$-linear map before tensoring.
+	The sheaf $\scrA_B^1$ splits into two subsheaves of rank $n$ corresponding to the eigenvalue $\im$ and $-\im$ of $J$.
+	On subsheaf associated to $\im$, two $\underline{\bbC}$-module sturctures coincide and on another part, the two $\underline{\bbC}$-module sturctures are conjugation over $\bbR$.
+
+	Note that on $\scrA_B^{1,0}$, there are only one $\underline{\bbC}$-module sturcture.
+	In other word, the two $\underline{\bbC}$-module sturctures comes from $\scrA_B^{1}$ coincides and $\scrA_B^{1,0}$ is the subsheaf defined by $J = \im$.
+	Set $\scrA_B^{0,1}$ be the subsheaf of $\scrA_B^1$ defined by $J = -\im$.
+	Then we have
+	\[ \scrA^1_B \coloneqq \scrA_B^{1,0} \oplus \scrA_{B}^{0,1}. \]
+	% Also write $\upd_{\sm,\bbC} = \upd^{1,0} + \upd^{0,1}$ according to the decomposition.
+\end{construction}
+
+On \Yang{}, some notations is temporary.
+We hence write down a definition.
+
+\begin{definition}
+	Let $B$ be a regular local model of complex analytic spaces.
+	The \emph{sheaf of complex-valued smooth $1$-differential forms} (resp. \emph{sheaf of complex-valued smooth $(1,0)$-differential forms}, \emph{sheaf of complex-valued smooth $(0,1)$-differential forms}) is the sheaf $\scrA_B^1$ (resp. $\scrA_B^{1,0}$, $\scrA_B^{0,1}$ defined in \Yang{}.
+	And the \emph{differential map $\upd$} is defined as the map $\upd_{\sm,\bbC}$ in \Yang{}.
+	According to the decomposition $\scrA_B^1 = \scrA_B^{1,0} \oplus \scrA_B^{0,1}$, we write $\upd = \partial + \partialbar$.
+
+	The \emph{sheaf of complex-valued smooth $k$-differential forms}, \emph{sheaf of complex-valued smooth $(p,q)$-differential forms} and \emph{sheaf of complex-valued smooth differential forms} are defined as
+	\[ \scrA_B^k \coloneqq \bigwedge^k \scrA_B^1, \qquad \scrA_B^{p,q} \coloneqq \bigwedge^p \scrA_B^{1,0} \otimes \bigwedge^q \scrA_B^{0,1}, \qquad \scrA_B \coloneqq \scrA_B^\bullet \coloneqq \bigoplus_{k\geq 0} \scrA_B^k = \bigoplus_{p,q \geq 0} \scrA_B^{p,q}. \]
+	Note that $\scrA_B^k = \bigoplus_{p+q=k} \scrA_B^{p,q}$.
+	An element $\omega \in \scrA_B^\bullet(U)$ is called \emph{of degree $k$} (resp. \emph{of bidegree $(p,q)$}) if $\omega \in \scrA_B^k(U)$ (resp. $\omega \in \scrA_B^{p,q}(U)$).
+	The differentials
+	\[ \upd: \scrA_B^k \to \scrA_B^{k+1}, \qquad \partial: \scrA_B^{p,q} \to \scrA_B^{p+1,q}, \qquad \partialbar: \scrA_B^{p,q} \to \scrA_B^{p,q+1} \]
+	extend by Leibinz\Yang{} rule.
+\end{definition}
+
+
+
+
+\Yang{}
+
+
+
+
+
 
 
 
