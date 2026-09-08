@@ -58,20 +58,9 @@
             }
           },
           {
-            "id": "bundles-and-sheaves",
-            "title": "Bundles and sheaves",
-            "order": 4,
-            "tex": "chapters/the-first-properties/bundles-and-sheaves/bundles-and-sheaves.tex",
-            "url": "pdf/chapters/the-first-properties/bundles-and-sheaves/bundles-and-sheaves.pdf",
-            "status": {
-              "published": 0,
-              "finished": 0
-            }
-          },
-          {
             "id": "from-differential-to-algebraic-geometry",
             "title": "From differential to algebraic geometry",
-            "order": 5,
+            "order": 4,
             "tex": "chapters/the-first-properties/from-differential-to-algebraic-geometry/from-differential-to-algebraic-geometry.tex",
             "url": "pdf/chapters/the-first-properties/from-differential-to-algebraic-geometry/from-differential-to-algebraic-geometry.pdf",
             "status": {
