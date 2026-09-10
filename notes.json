@@ -3,6 +3,11 @@
   "build": {
     "engine": "xelatex"
   },
+  "referenceCatalog": {
+    "file": "external-labels.json",
+    "downloadUrl": "https://www.tianleyang.com/complex-geometry/external-labels.json"
+  },
+  "externalReferences": [],
   "book": {
     "id": "complex-geometry",
     "title": "Complex Geometry",
